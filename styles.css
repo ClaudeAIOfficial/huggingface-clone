@@ -384,3 +384,95 @@
 @media(max-width:1279px){.reference-home .hero .agent-intro{top:140px}.agent-hero-mascot{left:29%;width:31%;height:70%}.reference-home .agent-intro h1{font-size:48px}}
 @media(max-width:900px){.reference-home .hero .agent-intro{position:relative;left:auto;top:auto;width:auto;padding:60px 28px 0}.reference-home .agent-intro h1{font-size:48px}.agent-hero-mascot{left:auto;right:5%;width:38%;height:42%;bottom:43%}.hero-models-art{top:auto!important;bottom:0;right:0;width:100%!important;height:45%!important;overflow:hidden}.reference-home .hero{min-height:900px!important}}
 @media(max-width:530px){.reference-home .hero .agent-intro{padding:34px 22px 0}.reference-home .agent-intro h1{font-size:41px}.reference-home .agent-intro p{max-width:260px}.agent-hero-mascot{width:42%;height:34%;bottom:45%;right:0}.reference-home .hero{min-height:820px!important}.reference-home .agent-intro .hero-actions{gap:12px}}
+
+/* Agent Hug hero layout correction: contained mascot, centered copy, aligned CTAs */
+@media (min-width: 901px) {
+  .reference-home .hero {
+    position: relative;
+    height: 680px;
+    min-height: 680px;
+    padding: 0;
+    overflow: visible;
+  }
+  .reference-home .hero .hero-copy.agent-intro {
+    position: absolute !important;
+    left: 5% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 27% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    z-index: 4;
+  }
+  .reference-home .agent-intro h1 {
+    font-size: clamp(42px, 3.4vw, 66px);
+    white-space: nowrap;
+    letter-spacing: -1.9px;
+    line-height: 1.08;
+  }
+  .reference-home .agent-intro p {
+    font-size: clamp(14px, .9vw, 17px);
+    max-width: 340px;
+    margin: 21px 0 28px;
+  }
+  .reference-home .agent-intro .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .reference-home .agent-intro .agent-main-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 999px;
+  }
+  .reference-home .agent-intro .hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  .agent-hero-mascot {
+    position: absolute;
+    left: 28%;
+    bottom: 12%;
+    width: 21%;
+    max-width: 345px;
+    height: 61%;
+    object-fit: contain;
+    object-position: center bottom;
+    z-index: 3;
+  }
+  .hero-models-art {
+    position: absolute;
+    right: 0;
+    top: -28px;
+    width: 51%;
+    height: calc(100% + 28px);
+    z-index: 2;
+  }
+}
+@media (min-width: 901px) and (max-width: 1279px) {
+  .reference-home .hero { height: 600px; min-height: 600px; }
+  .reference-home .hero .hero-copy.agent-intro { width: 29% !important; }
+  .reference-home .agent-intro h1 { font-size: 43px; }
+  .agent-hero-mascot { left: 29%; width: 20%; height: 55%; bottom: 17%; }
+}
+@media (max-width: 900px) {
+  .reference-home .hero { overflow: hidden; }
+  .reference-home .hero .hero-copy.agent-intro {
+    transform: none !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+  }
+  .reference-home .agent-intro .hero-actions {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+  }
+}
