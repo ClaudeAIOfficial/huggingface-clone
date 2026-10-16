@@ -36,3 +36,137 @@
 .enterprise-screenshot{height:auto!important;background:#0c111c;overflow:visible;border-radius:10px;display:block}
 .enterprise-screenshot img{display:block;width:100%;height:auto;border-radius:10px}
 @media(max-width:790px){.reference-home .trendingTitle{margin:30px 0}.enterprise-section .section-intro{padding:55px 0 40px}}
+
+/* --- User-requested sizing and icon fixes --- */
+.container,
+.hf-section{
+  width:min(1180px, calc(100% - 24px));
+}
+
+.topbar{padding-top:6px}
+.reference-home .hero{
+  height:565px;
+  margin-top:18px;
+  margin-bottom:68px;
+}
+.reference-home .hero-copy{
+  top:102px;
+  left:66px;
+  width:432px;
+}
+.reference-home .hero-image img{
+  width:64px;
+  height:64px;
+}
+.reference-home .hero h1{
+  font-size:58px;
+  line-height:1.02;
+  letter-spacing:-2.1px;
+}
+.reference-home .hero p{
+  font-size:15px;
+  line-height:1.6;
+  margin:24px 0 28px;
+  max-width:360px;
+}
+.reference-home .hero-actions,
+.reference-home .hero-primary,
+.reference-home .hero-secondary{
+  font-size:14px;
+}
+.reference-home .hero-primary{
+  padding:9px 18px;
+}
+.hero-explorer{
+  width:575px;
+  height:540px;
+  top:-10px;
+}
+.dark-result{min-height:48px}
+.dark-result b{font-size:10px}
+.dark-result small{font-size:8px}
+
+.reference-home .trendingTitle{
+  margin:40px 0 42px;
+  font-size:17px;
+}
+.reference-home .trend-heading{
+  font-size:17px;
+  margin-bottom:24px;
+}
+.trending-grid{gap:24px}
+.trend-item,
+.trend-space{
+  height:54px;
+  padding:9px 10px;
+}
+.trend-item-title{font-size:13px}
+.trend-item small{font-size:10px}
+.trend-space-title{font-size:10px}
+.trend-space small{font-size:9px}
+.browse-trend{font-size:11px;margin-top:14px}
+
+.machine-section,
+.enterprise-section,
+.open-source-section{
+  margin-top:72px;
+}
+.section-intro{
+  padding:84px 0 54px;
+}
+.section-intro h2{
+  font-size:52px;
+  letter-spacing:-1.6px;
+  font-weight:750;
+}
+.section-intro p{
+  font-size:16px;
+  margin-top:8px;
+}
+.machine-section .section-intro .intro-icon,
+.open-source-section .section-intro .intro-icon{
+  display:block;
+  width:36px;
+  height:36px;
+  margin:0 auto 10px;
+  font-size:0;
+  color:transparent;
+  background:url('assets/section-cube.png') center center / contain no-repeat;
+}
+
+.machine-grid{gap:24px}
+.card-head{padding:28px;min-height:108px}
+.card-head h3{font-size:18px}
+.card-head p{font-size:14px}
+.official-art{height:325px}
+.enterprise-card .official-art{height:275px}
+
+.enterprise-section .section-intro h2{font-size:54px}
+.enterprise-section .section-intro p{font-size:16px}
+.enterprise-screenshot img{width:100%;height:auto}
+.enterprise-cards{gap:26px;margin-top:28px}
+.organizations{margin:78px 0 86px}
+.org-list a{padding:14px 12px}
+.org-list strong{font-size:13px}
+.org-list small{font-size:11px}
+
+.open-grid{gap:18px}
+.open-card{min-height:225px;padding:32px 24px 24px}
+.open-card h3{font-size:17px}
+.open-card small{font-size:12px}
+.open-card p{font-size:14px}
+
+@media(max-width:1200px){
+  .container,
+  .hf-section{width:min(1120px, calc(100% - 24px));}
+  .reference-home .hero h1{font-size:52px}
+  .hero-explorer{width:53%}
+}
+@media(max-width:790px){
+  .container,
+  .hf-section{width:min(100% - 20px, 1180px)}
+  .section-intro h2,
+  .enterprise-section .section-intro h2{font-size:36px}
+  .reference-home .hero{min-height:860px}
+  .reference-home .hero-copy{padding:40px 28px 18px}
+}
