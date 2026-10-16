@@ -170,3 +170,57 @@
   .reference-home .hero{min-height:860px}
   .reference-home .hero-copy{padding:40px 28px 18px}
 }
+
+/* 2560px desktop layout: wider, proportionally sized homepage */
+@media (min-width: 1201px) {
+  .container, .hf-section {
+    width: min(1660px, calc(100% - 80px));
+    max-width: none;
+  }
+  .topbar .navinside { gap: 20px; }
+  .topbar { height: 54px; }
+  .brand { font-size: 15px; }
+  .brand-logo { width: 25px; height: 25px; }
+  .searchWrap { max-width: 370px; }
+  .searchWrap input { height: 32px; font-size: 12px; }
+  .navlinks { gap: 21px; }
+  .navlinks a, .account button { font-size: 12px; }
+  .reference-home .hero {
+    height: clamp(570px, 32vw, 700px);
+    margin-top: 42px;
+    margin-bottom: 68px;
+  }
+  .reference-home .hero-copy {
+    top: 21%;
+    left: 5.3%;
+    width: 42%;
+  }
+  .reference-home .hero h1 {
+    font-size: clamp(52px, 3.5vw, 72px);
+    line-height: 1.06;
+  }
+  .reference-home .hero p { font-size: 17px; max-width: 440px; }
+  .hero-explorer {
+    width: 49%;
+    height: 100%;
+    top: -26px;
+  }
+  .panel-tab, .dark-model-counter, .hero-search, .darkchip, .panel-label { font-size: 10px!important; }
+  .dark-result { min-height: 56px; padding: 10px; }
+  .dark-result b { font-size: 12px; }
+  .dark-result small { font-size: 10px; }
+  .reference-home .trendingTitle { margin: 52px 0 46px; }
+  .trending-grid { gap: 36px; }
+  .trend-item, .trend-space { height: 64px; padding: 11px 13px; }
+  .trend-item-title { font-size: 15px; }
+  .trend-item small { font-size: 12px; }
+  .trend-space-title { font-size: 12px; }
+  .trend-space small { font-size: 11px; }
+  .browse-trend { font-size: 13px; margin-top: 19px; }
+  .machine-grid { gap: 26px; }
+  .official-art { height: 350px; }
+  .enterprise-card .official-art { height: 300px; }
+}
+@media (min-width: 791px) and (max-width: 1200px) {
+  .container, .hf-section { width: calc(100% - 44px); }
+}
