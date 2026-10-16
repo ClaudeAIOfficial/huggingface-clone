@@ -317,3 +317,55 @@
   .hero-models-art{margin-top:20px;}
   .reference-home .hero h1{font-size:34px;}
 }
+
+/* Hero refinements based on the supplied desktop screenshot */
+@media (min-width: 1280px) {
+  .container, .hf-section { width: min(1900px, 76vw); max-width: none; }
+  .reference-home .hero {
+    height: 720px;
+    min-height: 720px;
+    margin-top: 34px;
+    margin-bottom: 74px;
+    padding: 80px;
+    border-radius: 25px;
+    overflow: visible;
+    background: radial-gradient(ellipse at 54% 65%, #161b25 0%, #0c101a 40%, #090d17 90%);
+  }
+  .reference-home .hero-copy {
+    width: 47%;
+    max-width: 680px;
+    flex: none;
+    z-index: 3;
+    transform: translateY(18px);
+  }
+  .reference-home .hero-image img { width: 64px; height: 64px; }
+  .reference-home .hero-image { margin-bottom: 28px; }
+  .reference-home .hero h1 {
+    font-size: clamp(48px, 3.1vw, 66px);
+    line-height: 1.07;
+    letter-spacing: -1.75px;
+  }
+  .reference-home .hero p {
+    font-size: clamp(15px, .95vw, 17px);
+    line-height: 1.65;
+    max-width: 490px;
+    margin-top: 32px;
+    margin-bottom: 38px;
+  }
+  .reference-home .hero-primary, .reference-home .hero-secondary { font-size: 15px; }
+  .hero-models-art {
+    right: 0;
+    top: -36px;
+    width: 54%;
+    height: calc(100% + 36px);
+    border-radius: 25px 25px 25px 0;
+    overflow: hidden;
+  }
+  .hero-models-art img { object-fit: cover; object-position: left center; }
+}
+@media (min-width: 1280px) and (max-width: 1600px) {
+  .reference-home .hero { height: 620px; min-height: 620px; padding: 64px; }
+  .reference-home .hero-copy { width: 46%; }
+  .reference-home .hero h1 { font-size: 47px; }
+  .hero-models-art { top: -28px; height: calc(100% + 28px); }
+}
