@@ -22,3 +22,17 @@
 .org-logo-image{width:27px;height:27px;min-width:27px;object-fit:contain;border-radius:5px;display:block;background:white} 
 .org-list a{display:flex;align-items:center;gap:9px} 
 .orggrid .org{display:flex;align-items:center;gap:10px}
+
+/* Pixel-referenced heading and enterprise artwork alignment */
+.reference-home .trendingTitle{margin:48px 0 51px;display:flex;align-items:center;gap:16px;font-size:16px;color:#101318}
+.reference-home .trendingTitle strong{white-space:nowrap;font-weight:700}
+.reference-home .trendingTitle .rule{display:block;flex:1;height:1px;background:#e9ebef}
+.reference-home .trend-heading{font-weight:700;font-size:16px;color:#101318;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:30px}
+.reference-home .trend-heading span{font-size:15px}
+.machine-section .section-intro .intro-icon{display:block;font-size:27px;color:#525b69;margin-bottom:8px}
+.enterprise-section .section-intro{padding:92px 0 82px}
+.enterprise-section .section-intro h2{font-weight:750;font-size:31px}
+.enterprise-section .section-intro p{font-size:16px;margin-top:8px}
+.enterprise-screenshot{height:auto!important;background:#0c111c;overflow:visible;border-radius:10px;display:block}
+.enterprise-screenshot img{display:block;width:100%;height:auto;border-radius:10px}
+@media(max-width:790px){.reference-home .trendingTitle{margin:30px 0}.enterprise-section .section-intro{padding:55px 0 40px}}
