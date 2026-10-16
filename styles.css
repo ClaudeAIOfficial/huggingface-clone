@@ -373,3 +373,14 @@
 /* Official Hugging Face mark in the Trending heading */
 .trendingTitle .trending-logo{width:24px;height:24px;object-fit:contain;display:inline-block;vertical-align:middle;flex:0 0 auto;}
 .reference-home .trendingTitle strong{display:inline-flex;align-items:center;justify-content:center;gap:3px;}
+
+/* Agent Hug hero: simple introduction and character, original model panel preserved */
+.reference-home .hero .agent-intro{z-index:5;left:clamp(34px,3.8vw,72px);top:clamp(135px,11vw,195px);width:min(330px,30%)}
+.reference-home .agent-intro h1{font-size:clamp(44px,3.5vw,70px);line-height:1.03;letter-spacing:-2.5px;white-space:nowrap;margin:0}
+.reference-home .agent-intro p{max-width:310px;font-size:clamp(14px,0.91vw,17px);line-height:1.65;margin:23px 0 32px;color:#cfd8e8}
+.reference-home .agent-intro .hero-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.reference-home .agent-intro .agent-main-cta{border-color:#cdd4df;background:#fff;color:#111827;font-weight:650;padding:12px 20px;white-space:nowrap}
+.agent-hero-mascot{position:absolute;z-index:4;bottom:13px;left:31%;width:clamp(250px,23vw,420px);height:79%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 18px 38px rgba(241,165,25,.2));pointer-events:none}
+@media(max-width:1279px){.reference-home .hero .agent-intro{top:140px}.agent-hero-mascot{left:29%;width:31%;height:70%}.reference-home .agent-intro h1{font-size:48px}}
+@media(max-width:900px){.reference-home .hero .agent-intro{position:relative;left:auto;top:auto;width:auto;padding:60px 28px 0}.reference-home .agent-intro h1{font-size:48px}.agent-hero-mascot{left:auto;right:5%;width:38%;height:42%;bottom:43%}.hero-models-art{top:auto!important;bottom:0;right:0;width:100%!important;height:45%!important;overflow:hidden}.reference-home .hero{min-height:900px!important}}
+@media(max-width:530px){.reference-home .hero .agent-intro{padding:34px 22px 0}.reference-home .agent-intro h1{font-size:41px}.reference-home .agent-intro p{max-width:260px}.agent-hero-mascot{width:42%;height:34%;bottom:45%;right:0}.reference-home .hero{min-height:820px!important}.reference-home .agent-intro .hero-actions{gap:12px}}
