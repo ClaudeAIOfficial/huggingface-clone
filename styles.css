@@ -369,3 +369,7 @@
   .reference-home .hero h1 { font-size: 47px; }
   .hero-models-art { top: -28px; height: calc(100% + 28px); }
 }
+
+/* Official Hugging Face mark in the Trending heading */
+.trendingTitle .trending-logo{width:24px;height:24px;object-fit:contain;display:inline-block;vertical-align:middle;flex:0 0 auto;}
+.reference-home .trendingTitle strong{display:inline-flex;align-items:center;justify-content:center;gap:3px;}
