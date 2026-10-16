@@ -1,25 +1,7 @@
-# Hugging Face-inspired Community Hub
+# Hugging Face-style landing page
 
-Responsive, static front-end recreation of the public Hugging Face homepage and browsing experience, using sample data inspired by public listings.
+Static HTML, CSS and JavaScript. Open `index.html` or deploy this folder to Vercel.
 
-## Run
+The landing page recreates the supplied visual reference. Navigation links, browse links, model cards, and log-in/sign-up actions lead directly to the corresponding `huggingface.co` pages. The top search submits to Hugging Face when pressing Enter. Hero filtering remains an interactive visual element on this landing page.
 
-Open `index.html` in a browser, or serve with a static server for clean path routing:
-
-```bash
-python -m http.server 8080
-```
-
-Then open http://localhost:8080/ . For routes like `/models` on refresh, use a static server configured for SPA fallback (or return to the homepage first).
-
-## Included
-
-- Responsive navigation and search
-- Trending model, dataset, and Spaces listings
-- Browsable category pages with filtering and sorting
-- Project details with links to originals
-- Homepage feature, compute, organizations, open-source and footer sections
-
-## Scope
-
-Independent noncommercial UI demonstration. No login, user data capture, model inference, file hosting or Hugging Face API integration. Brand and model names belong to their respective owners. Do not represent this demo as the official service.
+The official Hugging Face SVG is loaded from the supplied URL. This project is an independent visual recreation, not the official Hugging Face website.
