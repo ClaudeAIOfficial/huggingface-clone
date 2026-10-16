@@ -17,3 +17,8 @@
 .emoji-pile{height:210px;bottom:0;overflow:hidden;background:transparent}
 .emoji-pile .official-hugs{position:absolute;left:0;bottom:0;width:100%;height:auto;min-height:120px;max-height:none;object-fit:contain;object-position:bottom}
 @media(max-width:520px){.official-art{height:250px}.enterprise-card .official-art{height:210px}}
+
+/* Official organization avatars matched to the eight homepage organization names */
+.org-logo-image{width:27px;height:27px;min-width:27px;object-fit:contain;border-radius:5px;display:block;background:white} 
+.org-list a{display:flex;align-items:center;gap:9px} 
+.orggrid .org{display:flex;align-items:center;gap:10px}
