@@ -476,3 +476,39 @@
     gap: 18px;
   }
 }
+
+
+/* Agent Hug mascot: use complete transparent figure and keep it out of the model artwork */
+@media (min-width: 901px) {
+  .reference-home .agent-hero-mascot {
+    left: 29% !important;
+    right: auto !important;
+    bottom: 14% !important;
+    width: clamp(205px, 20%, 340px) !important;
+    height: auto !important;
+    max-height: 69% !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    z-index: 4 !important;
+    transform: none !important;
+    filter: drop-shadow(0 16px 28px rgba(240,172,33,.16));
+  }
+  .reference-home .hero-models-art {z-index: 2 !important;}
+}
+@media (min-width: 901px) and (max-width: 1290px) {
+ .reference-home .agent-hero-mascot {left: 31% !important; width: 18% !important; bottom: 17% !important;}
+}
+@media (max-width: 900px) {
+ .reference-home .agent-hero-mascot {
+   width: min(40%, 280px) !important;
+   height: auto !important;
+   max-height: 35% !important;
+   right: 5% !important;
+   left: auto !important;
+   bottom: 46% !important;
+   object-fit: contain !important;
+ }
+}
+@media (max-width: 520px) {
+ .reference-home .agent-hero-mascot {width: 43% !important;right: 2% !important;bottom: 44% !important;}
+}
