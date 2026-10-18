@@ -1,0 +1,4 @@
+// Keep NVIDIA searches and organization links on this website.
+document.addEventListener("keydown",event=>{const input=event.target;if(event.key==="Enter"&&input?.id==="topSearch"&&/\bnvidia\b/i.test(input.value)){event.preventDefault();event.stopImmediatePropagation();location.href="nvidia.html";}},true);
+document.addEventListener("click",event=>{const link=event.target.closest?.('a[href]');if(link&&["/nvidia","https://huggingface.co/nvidia"].includes(link.getAttribute("href"))){event.preventDefault();event.stopImmediatePropagation();location.href="nvidia.html";}},true);
+if(/\bnvidia\b/i.test(new URLSearchParams(location.search).get("search")||""))location.replace("nvidia.html");
