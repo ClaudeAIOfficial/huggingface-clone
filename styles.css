@@ -512,3 +512,30 @@
 @media (max-width: 520px) {
  .reference-home .agent-hero-mascot {width: 43% !important;right: 2% !important;bottom: 44% !important;}
 }
+
+
+/* Restored original Hugging Face homepage hero (no Agent Hug) */
+@media (min-width:901px){
+.reference-home .hero{position:relative;height:720px;min-height:720px;overflow:visible}
+.reference-home .hero .hero-copy.original-hero-copy{position:absolute;z-index:4;left:5.2%;top:50%;transform:translateY(-50%);width:43%;max-width:650px;padding:0}
+.reference-home .original-hero-copy .hero-image{margin-bottom:27px}
+.reference-home .original-hero-copy .hero-image img{width:65px;height:65px}
+.reference-home .original-hero-copy h1{font-size:clamp(40px,3.15vw,62px);line-height:1.07;letter-spacing:-1.4px}
+.reference-home .original-hero-copy p{font-size:16px;line-height:1.65;max-width:420px;margin:28px 0 35px}
+.reference-home .original-hero-copy .hero-actions{display:flex;justify-content:flex-start;align-items:center;gap:15px;flex-wrap:wrap}
+.reference-home .original-hero-copy .hero-primary{font-size:15px;padding:10px 20px}
+.reference-home .original-hero-copy .hero-secondary{font-size:15px}
+.reference-home .hero-models-art{z-index:2;right:0;top:-30px;width:53%;height:calc(100% + 30px);overflow:hidden}
+}
+@media (min-width:901px) and (max-width:1279px){
+.reference-home .hero{height:620px;min-height:620px}
+.reference-home .hero .hero-copy.original-hero-copy{width:46%;left:5%}
+.reference-home .original-hero-copy h1{font-size:43px}
+.reference-home .hero-models-art{width:51%}
+}
+@media (max-width:900px){
+.reference-home .hero .hero-copy.original-hero-copy{position:relative;left:auto;top:auto;width:auto;transform:none;padding:48px 27px 28px;z-index:3}
+.reference-home .original-hero-copy h1{font-size:clamp(30px,6vw,42px)}
+.reference-home .original-hero-copy p{max-width:480px}
+.reference-home .hero-models-art{z-index:2}
+}
