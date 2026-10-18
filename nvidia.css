@@ -8,3 +8,33 @@
 .org-name .litetag,.org-name .verified{color:#64748b!important;background:#fff!important;border:1px solid #e3e8ef!important;box-shadow:none!important;font-weight:450!important}
 .org-name .verified{padding-left:5px!important}
 .org-name .verify-check{display:inline-grid!important;place-items:center!important;flex:none!important;background:#1d9bf0!important;color:#fff!important;border-radius:50%!important;width:11px!important;height:11px!important;font-size:8px!important;line-height:1!important;margin-right:4px!important}
+
+
+/* NVIDIA screenshot-matched header, sidebar and real icon geometry */
+.org-top{background:#fbfbfc!important;border-bottom:1px solid #f0f1f3!important}
+.org-top-inner{padding-top:25px!important;padding-bottom:25px!important;min-height:132px!important;gap:16px!important}
+.org-logo{width:66px!important;height:66px!important;object-fit:contain!important}
+.org-name{gap:8px!important}.org-name h1{font-size:21px!important;font-weight:750!important}
+.org-identity p{display:flex!important;align-items:center!important;gap:15px!important;margin-top:5px!important;font-size:12px!important}
+.org-identity p a{display:inline-flex;align-items:center;gap:5px}
+.ui-icon{height:13px;width:13px;display:inline-block;vertical-align:-2px;flex:none;color:#8290a2}
+.org-identity .ui-icon{color:#64748b}
+.side h3{display:flex;align-items:center;gap:8px;font-size:14px!important;font-weight:700!important;margin-bottom:13px!important;color:#101827}
+.side h3 .ui-icon{width:15px;height:15px;color:#a7b0bc}
+.main-wrap{gap:44px!important;grid-template-columns:335px minmax(0,1fr)!important}
+.side section{margin-bottom:32px!important}
+.side section > p{color:#66758e!important;line-height:1.5}
+.side .activity-row{display:flex!important;align-items:flex-start!important;gap:9px!important;margin:10px 0!important}
+.activity-row .activity-icon{position:relative;display:block;flex:0 0 15px;width:15px;height:15px;margin-top:2px;font-size:0!important;line-height:0}
+.activity-row .activity-icon::before{content:"";position:absolute;left:1px;top:0;width:13px;height:13px;border-radius:50%;background:conic-gradient(#57bca7 0 34%,#c7c9fb 34% 60%,#65a68d 60% 100%);box-shadow:0 0 0 1px #edf2f4}
+.activity-row .activity-icon::after{content:"";position:absolute;right:-1px;bottom:0;width:5px;height:5px;border-radius:50%;background:#775de2;border:1px solid #fff}
+.activity-row .activity-icon.activity-new::before{background:conic-gradient(#ffbc55 0 32%,#f4e3bd 32% 63%,#db9b37 63% 100%)}
+.activity-row .activity-icon.activity-new::after{background:#eaa323}
+.activity-row div{font-size:11px!important;line-height:1.45!important;color:#354158!important}
+.activity-row b{font-weight:600!important}
+.activity-row em{font-style:normal!important;color:#a2aab7!important;font-size:10px!important}
+.activity-row small{font-size:10px!important;line-height:1.5!important;color:#536b93!important}
+.paper span{width:28px!important;height:37px!important;flex:0 0 28px!important;background:#fff!important}
+.paper .ui-icon{color:#a2adbb}
+.side .small-pill{margin-top:9px!important;border-radius:15px!important;padding:4px 10px!important}
+@media(max-width:750px){.main-wrap{display:block!important}.org-top-inner{flex-wrap:wrap}.org-actions{margin-left:0}}
