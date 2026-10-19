@@ -1,0 +1,82 @@
+{
+  "project": "NVIDIA Pets",
+  "version": "0.1.0",
+  "engine": "browser-multi-agent-demo",
+  "inference": "local-personality-simulation",
+  "attribution": "Independent project, not endorsed by NVIDIA",
+  "agents": [
+    {
+      "id": "penguin",
+      "name": "Pip",
+      "species": "Penguin",
+      "personality": "curious",
+      "speed": 0.059,
+      "image": "assets/penguin.webp",
+      "behaviors": [
+        "wander",
+        "waddle",
+        "chat",
+        "nap",
+        "follow"
+      ]
+    },
+    {
+      "id": "otter",
+      "name": "Ollie",
+      "species": "Otter",
+      "personality": "playful",
+      "speed": 0.087,
+      "image": "assets/otter.webp",
+      "behaviors": [
+        "wander",
+        "run",
+        "chat",
+        "play",
+        "follow"
+      ]
+    },
+    {
+      "id": "capybara",
+      "name": "Cappy",
+      "species": "Capybara",
+      "personality": "calm",
+      "speed": 0.03,
+      "image": "assets/capybara.webp",
+      "behaviors": [
+        "wander",
+        "rest",
+        "chat",
+        "nap",
+        "follow"
+      ]
+    },
+    {
+      "id": "red-panda",
+      "name": "Rumi",
+      "species": "Red Panda",
+      "personality": "mischievous",
+      "speed": 0.066,
+      "image": "assets/red-panda.webp",
+      "behaviors": [
+        "wander",
+        "play",
+        "chat",
+        "nap",
+        "follow"
+      ]
+    }
+  ],
+  "storage": [
+    "localStorage:conversation",
+    "localStorage:name_memory"
+  ],
+  "ui": [
+    "all-four-on-screen",
+    "individual-chat",
+    "drag",
+    "feed",
+    "play",
+    "nap",
+    "follow"
+  ]
+}
