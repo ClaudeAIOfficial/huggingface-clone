@@ -8,7 +8,9 @@
 <title>NVIDIA Pets · Interactive Digital Companions</title>
 <link rel="icon" href="https://huggingface.co/front/assets/huggingface_logo-noborder.svg">
 <link rel="stylesheet" href="./nvidia-pets/site.css">
+<link rel="stylesheet" href="./nvidia-pets/model-repo.css">
 <script defer src="./nvidia-pets/site.js"></script>
+<script defer src="./nvidia-pets/model-repo.js"></script>
 </head>
 <body>
 <header class="topbar">
@@ -24,13 +26,19 @@
  </div>
 </header>
 <div class="wrap">
- <div class="breadcrumbs"><a href="./index.html">Projects</a><span>/</span><span>community</span><span>/</span><strong>NVIDIA-Pets</strong></div>
+ <div class="breadcrumbs model-crumbs"><a href="./nvidia.html">nvidia</a><span>/</span><strong>NVIDIA-Pets</strong><span class="repo-model-identifier">interactive agents</span></div>
  <div class="repohead">
-  <div class="titleline"><div class="repoicon">🐾</div><div><div class="eyebrow">Interactive repository</div><h1>NVIDIA Pets</h1><p>Four little companions. Four different minds. One shared desktop.</p></div></div>
-  <div class="repo-actions"><a class="button primary" href="#demo">Try live demo <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">Browse files</a></div>
+  <div class="titleline"><div class="repoicon">🐾</div><div><div class="eyebrow">Interactive repository · v0.1</div><h1>NVIDIA Pets</h1><p>Four little companions. Four different minds. One shared desktop.</p><div class="author-byline"><img src="https://cdn-avatars.huggingface.co/v1/production/uploads/65df9200dc3292a8983e5017/Vs5FPVCH-VZBipV3qKTuy.png" alt=""> <a href="./nvidia.html">NVIDIA organization directory</a><span>·</span><span>Digital companion project</span></div></div></div>
+  <div class="repo-actions"><button type="button" class="button" id="favoriteRepo" aria-pressed="false">♡ Like <span id="likeCount">0</span></button><button type="button" class="button" id="saveRepo" aria-pressed="false">☆ Save</button><a class="button primary" href="#demo" data-switch="demo">Try live demo ↗</a></div>
  </div>
- <div class="chips"><span class="tag dot"><i></i> Interactive demo</span><span class="tag">4 pet agents</span><span class="tag">Browser-based</span><span class="tag">Personalities + memory</span><span class="tag">v0.1</span></div>
- <div class="tabs" role="tablist" aria-label="Repository sections"><button role="tab" id="tab-overview" class="selected" data-tab="overview" aria-selected="true">Model card</button><button role="tab" id="tab-demo" data-tab="demo" aria-selected="false">Live demo</button><button role="tab" id="tab-files" data-tab="files" aria-selected="false">Files and versions</button><button role="tab" id="tab-about" data-tab="about" aria-selected="false">About</button></div>
+ <div class="chips model-tags"><span class="tag dot"><i></i> Interactive demo</span><span class="tag">Multi-agent</span><span class="tag">Autonomous movement</span><span class="tag">JavaScript</span><span class="tag">4 companions</span><span class="tag">Local memory</span><span class="tag">MIT (code)</span></div>
+ <div class="tabs model-tabs" role="tablist" aria-label="Repository sections">
+    <button role="tab" id="tab-overview" class="selected" data-tab="overview" aria-selected="true">▤ Model card</button>
+    <button role="tab" id="tab-files" data-tab="files" aria-selected="false">▦ Files and versions <span class="subtab-stat">11</span></button>
+    <button role="tab" id="tab-community" data-tab="community" aria-selected="false">☷ Community <span id="communityCount" class="subtab-stat">0</span></button>
+    <button role="tab" id="tab-demo" data-tab="demo" aria-selected="false">◉ Live demo</button>
+    <button role="tab" id="tab-about" data-tab="about" aria-selected="false">About</button>
+ </div>
  <div class="pagegrid">
  <main id="maincontent">
   <section id="overview" class="tabpanel visible" role="tabpanel" aria-labelledby="tab-overview">
@@ -49,6 +57,51 @@
     <p>This release demonstrates the interaction system: pet-specific state, local chat memory, click-and-drag movement, individual needs and actions, and an autonomous roaming engine. The chat runs as a local personality simulation. The repository includes notes for connecting a language model later.</p>
     <div class="features"><div><strong>↝ Autonomous movement</strong><p>Independent wandering, pauses, head turns and pacing.</p></div><div><strong>◉ Distinct personalities</strong><p>Pet-specific dialogue, moods, and interaction patterns.</p></div><div><strong>▤ Local memory</strong><p>Separate histories saved in the current browser.</p></div><div><strong>✦ Shared space</strong><p>All four roam together in one desktop scene.</p></div></div>
     <h2>Getting started</h2><ol><li>Open the <a href="#demo" data-switch="demo">live demo</a>.</li><li>Select a pet to start talking or drag it around the scene.</li><li>Try <strong>Feed</strong>, <strong>Play</strong>, <strong>Nap</strong>, or <strong>Follow</strong>.</li><li>Switch pets to discover their different behaviors and conversations.</li></ol>
+    <h2 id="description">Model description</h2>
+    <p><strong>NVIDIA Pets</strong> is a four-companion interactive browser runtime. It brings a penguin, otter, capybara and red panda together in one shared digital space, with separate conversation histories, movement goals, habits, and moods.</p>
+    <p>The release demonstrates client-side agent systems rather than a pretrained language model. Each companion follows its own behavior loop and responds through a local personality dialogue engine. The images are realistic 3D-style renders displayed as animated sprites, not rigged 3D meshes.</p>
+    <h2 id="capabilities">Capabilities</h2>
+    <div class="spec-grid">
+     <div><span>Agents</span><strong>4 independent companions</strong></div>
+     <div><span>Input</span><strong>Text, click, drag, pet actions</strong></div>
+     <div><span>Output</span><strong>Dialogue, motion, behavior state</strong></div>
+     <div><span>Memory</span><strong>Per-pet browser storage</strong></div>
+     <div><span>Runtime</span><strong>Client-side JavaScript</strong></div>
+     <div><span>Model weights</span><strong>Not included</strong></div>
+    </div>
+    <h2 id="architecture">Architecture</h2>
+    <p>Each pet maintains an independent state containing position, destination, movement speed, energy, happiness, sleep state and follow mode. A shared animation loop advances each agent while retaining separate behavior decisions. The dialogue engine selects pet-specific responses from local rules.</p>
+    <pre class="code-sample"><code>PetAgent
+├── Character: Penguin | Otter | Capybara | Red Panda
+├── Autonomous navigation and idle behavior
+├── Personality-specific dialogue
+├── Energy, happiness and sleep state
+├── Separate local conversation history
+└── Input actions: Feed, Play, Nap, Follow</code></pre>
+    <h2 id="usage">Usage and quick start</h2>
+    <p>Open the interactive playground directly in a browser, or clone the source project and run a local HTTP server. No GPU or inference token is required for the prototype.</p>
+    <div class="code-head"><span>Terminal</span><button class="copy-snippet" data-copy-target="clone-command">Copy</button></div>
+    <pre class="code-sample" id="clone-command"><code>git clone https://github.com/ClaudeAIOfficial/huggingface-clone.git
+cd huggingface-clone
+python -m http.server 8000
+# Open http://localhost:8000/nvidia-pets.html</code></pre>
+    <div class="code-head"><span>JavaScript · example agent definition</span><button class="copy-snippet" data-copy-target="pet-config-example">Copy</button></div>
+    <pre class="code-sample" id="pet-config-example"><code>const pet = {
+  id: "penguin",
+  name: "Pip",
+  personality: "curious",
+  motion: "wander",
+  memory: "localStorage",
+  actions: ["feed", "play", "nap", "follow"]
+};</code></pre>
+    <h2 id="training">Training details and evaluation</h2>
+    <p><strong>Training:</strong> No proprietary or NVIDIA-trained foundation model is included in this repository. The dialogue layer uses predefined local personality patterns. Model training statistics and inference benchmarks are therefore not applicable to this version.</p>
+    <p><strong>Verification:</strong> The web runtime can be checked for four simultaneously visible pets, independent roaming, distinct chat histories, individual actions and mobile layout behavior.</p>
+    <h2 id="requirements">Requirements and deployment</h2>
+    <p>Modern desktop or mobile browser with JavaScript enabled. No installation is needed to use the hosted demo. To deploy your own copy, serve these static files from Vercel, GitHub Pages, or any static file host.</p>
+    <p><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">Source files and documentation ↗</a></p>
+    <h2 id="limitations">Limitations and responsible use</h2>
+    <p>Dialogue is a browser-local simulation and should not be presented as unrestricted language-model intelligence. The demo does not access real microphones, control your operating-system desktop, or save conversations to a server. Pet sprite motion is 2D with 3D-rendered imagery. Browser storage can be cleared at any time.</p>
     <h2>Roadmap</h2><p>Future integrations can add language-model responses, synthesized voices, better skeletal 3D animation, persistent accounts, and real desktop overlays. The current release is a browser prototype, with 3D-rendered sprites rather than rigged 3D meshes.</p>
    </div>
   </section>
@@ -75,21 +128,52 @@
    </div>
   </section>
   <section id="files" class="tabpanel" role="tabpanel" aria-labelledby="tab-files">
-   <div class="section-label"><span>Files and versions</span><span>main · v0.1</span></div>
-   <div class="file-list">
-    <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/README.md" target="_blank" rel="noopener">▤ README.md <small>Project documentation</small></a>
-    <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/site.js" target="_blank" rel="noopener">▣ site.js <small>Four-agent runtime, movement and chat</small></a>
-    <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/site.css" target="_blank" rel="noopener">▣ site.css <small>Responsive interface and stage styling</small></a>
-    <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets/assets" target="_blank" rel="noopener">▥ assets/ <small>Optimized pet sprites</small></a>
+   <div class="repo-files-toolbar"><div class="file-branch">⌁ main <span>▾</span></div><div class="file-summary"><span>11 files</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/commits/main/nvidia-pets" target="_blank" rel="noopener">Commit history ↗</a><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">View on GitHub ↗</a></div></div>
+   <div class="latest-commit"><strong>Latest version · v0.1</strong><span>Four independent pet agents, responsive demo and documentation</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/commits/main/nvidia-pets" target="_blank" rel="noopener">History</a></div>
+   <div class="files-table" role="table" aria-label="Repository files">
+    <div class="file-row" role="row"><span>▦</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets/assets" target="_blank" rel="noopener">assets/</a><small>4 images</small><small>Pet artwork</small></div>
+    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/penguin.webp" target="_blank">penguin.webp</a><small>9.5 KB</small><small>Image</small></div>
+    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/otter.webp" target="_blank">otter.webp</a><small>12.2 KB</small><small>Image</small></div>
+    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/capybara.webp" target="_blank">capybara.webp</a><small>11.7 KB</small><small>Image</small></div>
+    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/red-panda.webp" target="_blank">red-panda.webp</a><small>11.8 KB</small><small>Image</small></div>
+    <div class="file-row" role="row"><span>▤</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/README.md" target="_blank" rel="noopener">README.md</a><small>Documentation</small><small>Model card</small></div>
+    <div class="file-row" role="row"><span>▤</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a><small>Architecture</small><small>Agent design</small></div>
+    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/pets.json" target="_blank" rel="noopener">pets.json</a><small>JSON</small><small>Agent manifest</small></div>
+    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/site.js" target="_blank" rel="noopener">site.js</a><small>JavaScript</small><small>Runtime</small></div>
+    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/site.css" target="_blank" rel="noopener">site.css</a><small>CSS</small><small>Interface</small></div>
+    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/model-repo.css" target="_blank" rel="noopener">model-repo.css</a><small>CSS</small><small>Repository layout</small></div>
+    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/model-repo.js" target="_blank" rel="noopener">model-repo.js</a><small>JavaScript</small><small>Repository controls</small></div>
    </div>
-   <p class="subtle">The source repository contains the interactive implementation. Current animal artwork is rendered from the pet designs.</p>
+   <p class="subtle">The original source files and commit history are available through the links above. Images open directly from this site.</p>
+  </section>
+  <section id="community" class="tabpanel" role="tabpanel" aria-labelledby="tab-community">
+   <div class="community-head"><div><h2>Community</h2><p>Discuss ideas, request new pets and share feedback.</p></div><button class="button primary" id="newDiscussion">+ New discussion</button></div>
+   <div class="community-note">Posts in this demo are private to this browser. To submit a public issue, use <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/issues" target="_blank" rel="noopener">GitHub Issues ↗</a>.</div>
+   <form id="discussionForm" class="discussion-form" hidden>
+    <label for="discussionTitle">Discussion title</label><input id="discussionTitle" required maxlength="100" placeholder="Suggest a feature or ask a question">
+    <label for="discussionBody">Your message</label><textarea id="discussionBody" required maxlength="1200" rows="4" placeholder="What would you like to discuss?"></textarea>
+    <div class="discussion-actions"><button type="button" class="button" id="cancelDiscussion">Cancel</button><button class="button primary" type="submit">Save discussion locally</button></div>
+   </form>
+   <div class="discussion-controls"><div class="discussion-pills"><button class="active" data-discussion-filter="all">All</button><button data-discussion-filter="discussion">Discussions</button><button data-discussion-filter="suggestion">Suggestions</button></div><input id="discussionSearch" placeholder="Filter by title" aria-label="Filter discussions"></div>
+   <div id="discussionList" class="discussion-list"></div>
   </section>
   <section id="about" class="tabpanel" role="tabpanel" aria-labelledby="tab-about">
     <div class="section-label">About this project</div>
     <div class="markdown"><h2>Digital companions</h2><p>NVIDIA Pets explores expressive animal companions living together in a shared digital environment. Each character has its own behavior state and interactive dialogue.</p><h3>Implementation</h3><p>Client-side HTML, CSS and JavaScript power the demo. Four independent pet objects handle navigation, energy, happiness, action selection and local conversation history. The current responses are deterministic personality scripts, not inference from a trained pet language model.</p><h3>Project attribution</h3><p>This is an independently built digital-pet project. NVIDIA has not announced, developed or endorsed it.</p></div>
   </section>
  </main>
- <aside class="reporail"><div class="railcard"><h3>Project information</h3><div class="railrow"><span>Category</span><b>Digital companions</b></div><div class="railrow"><span>Agents</span><b>4</b></div><div class="railrow"><span>Release</span><b>v0.1</b></div><div class="railrow"><span>Platform</span><b>Web</b></div><div class="railrow"><span>Interaction</span><b>Text + motion</b></div><div class="railrow"><span>Code</span><b>Open repository</b></div></div><div class="railcard"><h3>How it works</h3><p>Each companion has a separate state machine, individual chat memory, and a roaming routine. Drag, chat, feed, or play with them in the live demo.</p></div><a class="rail-link" href="#demo" data-switch="demo">Open playground ↗</a></aside>
+ <aside class="reporail model-rail">
+   <div class="railcard use-model-card"><div class="rail-title">Use this model</div>
+     <p>Run the interactive browser companions. No model server or GPU required for the starter demo.</p>
+     <button class="model-primary" id="openUsage">▣ Show quick start <span>▾</span></button>
+     <div class="model-usage" id="usagePanel" hidden><div class="code-head"><span>Terminal</span><button class="copy-snippet" data-copy-target="railUsageCode">Copy</button></div><pre id="railUsageCode">git clone https://github.com/ClaudeAIOfficial/huggingface-clone.git
+cd huggingface-clone
+python -m http.server 8000</pre><a href="#demo" data-switch="demo">Open live demo ↗</a></div>
+   </div>
+   <div class="railcard deploy-card"><div class="rail-title">Deploy</div><p>Use the static files on a host such as Vercel, or explore the live browser playground.</p><a class="deploy-btn" href="#demo" data-switch="demo">▶ Open interactive demo</a><a class="deploy-link" href="https://vercel.com/new" target="_blank" rel="noopener">Deploy your own copy ↗</a></div>
+   <div class="railcard"><h3>Model details</h3><div class="railrow"><span>Task</span><b>Interactive agents</b></div><div class="railrow"><span>Language</span><b>JavaScript</b></div><div class="railrow"><span>Agents</span><b>4</b></div><div class="railrow"><span>Version</span><b>v0.1</b></div><div class="railrow"><span>Framework</span><b>Browser API</b></div><div class="railrow"><span>Weights</span><b>None</b></div><div class="railrow"><span>License</span><b>MIT (code)</b></div><a class="rail-link" href="#files" data-switch="files">Browse files ↗</a></div>
+   <div class="railcard toc-rail"><h3>On this page</h3><a href="#description">Description</a><a href="#capabilities">Capabilities</a><a href="#architecture">Architecture</a><a href="#usage">Usage</a><a href="#training">Training and evaluation</a><a href="#requirements">Deployment</a><a href="#limitations">Limitations</a></div>
+ </aside>
  </div>
  <footer><p>NVIDIA Pets · Independent digital companion project. No affiliation with or endorsement by NVIDIA.</p><a href="./index.html">Back to site</a></footer>
 </div>
