@@ -24,3 +24,54 @@ function init(){
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
+
+/* Local NVIDIA Pets repository highlight in the Recent Activity sidebar. */
+(function () {
+  "use strict";
+  function showPetsActivity() {
+    if (document.getElementById("nvidia-pets-recent-activity")) return;
+    const heading = [...document.querySelectorAll("h2,h3,h4")]
+      .find(el => /^Recent Activity\s*$/i.test(el.textContent.trim()));
+    if (!heading) return;
+
+    const activitySection = heading.nextElementSibling;
+    if (!activitySection) return;
+    const list = activitySection.querySelector(".relative.grid") || activitySection;
+    const row = document.createElement("div");
+    row.id = "nvidia-pets-recent-activity";
+    row.className = "nvidia-pets-recent-item";
+    row.innerHTML = [
+      '<a class="nvidia-pets-recent-link" href="./nvidia-pets.html" title="Open the NVIDIA Pets interactive repository">',
+      '  <span class="nvidia-pets-recent-avatar"><img src="./nvidia-pets/assets/penguin.webp" alt="" loading="lazy"></span>',
+      '  <span class="nvidia-pets-recent-copy">',
+      '    <span class="nvidia-pets-recent-title"><strong>NVIDIA Pets</strong> <span class="nvidia-pets-recent-time">New project</span></span>',
+      '    <span class="nvidia-pets-recent-subtitle">4 interactive pet companions</span>',
+      '    <span class="nvidia-pets-recent-route">Open NVIDIA Pets repository →</span>',
+      '  </span>',
+      '</a>'
+    ].join("");
+    list.prepend(row);
+    if (document.getElementById("nvidia-pets-activity-style")) return;
+    const css = document.createElement("style");
+    css.id = "nvidia-pets-activity-style";
+    css.textContent = [
+      ".nvidia-pets-recent-item{margin:0 0 13px;max-width:100%}",
+      ".nvidia-pets-recent-link{display:flex;align-items:flex-start;gap:9px;text-decoration:none!important;color:inherit!important;max-width:100%}",
+      ".nvidia-pets-recent-link:hover .nvidia-pets-recent-route{text-decoration:underline}",
+      ".nvidia-pets-recent-avatar{display:grid;place-items:center;flex:0 0 21px;width:21px;height:21px;margin-top:1px;border-radius:50%;background:#e7f4e9;border:1px solid #d2e8d5;overflow:hidden}",
+      ".nvidia-pets-recent-avatar img{width:19px;height:19px;object-fit:contain}",
+      ".nvidia-pets-recent-copy{display:flex;flex-direction:column;min-width:0;line-height:1.4;font-size:12px}",
+      ".nvidia-pets-recent-title{color:#182335;display:block}",
+      ".nvidia-pets-recent-title strong{font-weight:650}",
+      ".nvidia-pets-recent-time{margin-left:3px;font-size:10px;color:#94a3b8}",
+      ".nvidia-pets-recent-subtitle{font-size:11px;color:#566578}",
+      ".nvidia-pets-recent-route{font-size:11px;color:#536c9b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}"
+    ].join("");
+    document.head.append(css);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", showPetsActivity, { once: true });
+  } else {
+    showPetsActivity();
+  }
+})();
