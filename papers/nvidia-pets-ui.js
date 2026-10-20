@@ -1,50 +1,65 @@
 (()=>{"use strict";
 const $=s=>document.querySelector(s);
-const COPY_LABEL="NVIDIA Pets · Product Paper";
-const memoryKey="nvidia-pets-paper-community-v3",voteKey="nvidia-pets-paper-upvote-v3";
-function getStored(k,fallback){try{const raw=localStorage.getItem(k);return raw===null?fallback:JSON.parse(raw)}catch{return fallback}}
-function setStored(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}
-async function copyToClipboard(value,btn){
- let copied=false;
- try{await navigator.clipboard.writeText(value);copied=true}catch{}
- if(!copied){const area=document.createElement("textarea");area.value=value;area.style.cssText="position:fixed;opacity:0;pointer-events:none;";document.body.append(area);area.select();try{copied=document.execCommand("copy")}catch{}area.remove()}
- if(!btn)return;
- const old=btn.dataset.originalLabel||btn.textContent.trim();btn.dataset.originalLabel=old;
- btn.textContent=copied?"Copied!":"Select to copy";
- if(!copied){btn.title=value.slice(0,900)}
- window.setTimeout(()=>{btn.textContent=old},1350);
-}
-function markdownPaper(){
- const parts=["# NVIDIA Pets","Product paper · October 2026",""];
- const sections=[...document.querySelectorAll(".hf-abstract,.hf-paper-longform section")];
- for(const section of sections){
-  const heading=section.querySelector("h2");
-  if(heading)parts.push("## "+heading.innerText.trim());
-  const intro=section.querySelector(".abstract-highlight");
-  if(intro)parts.push(intro.innerText.trim());
-  const featured=section.querySelectorAll("h3,p,.feature-point");
-  for(const item of featured){
-   if(item.closest(".feature-point")&&item.classList.contains("feature-point"))continue;
-   if(item.tagName==="H3")parts.push("### "+item.innerText.trim());
-   if(item.tagName==="P")parts.push(item.innerText.trim());
+const paperId="NVIDIA-PETS-001";
+const voteKey="nvidia-pets-paper-upvote-v3";
+function getVote(){try{return localStorage.getItem(voteKey)==="true"}catch{return false}}
+function setVote(v){try{localStorage.setItem(voteKey,String(v))}catch{}}
+function titleFor(el){return el?.textContent?.trim()||""}
+function asMarkdown(){
+  const parts=["# NVIDIA Pets","","Product paper · October 2026","","Authors: NVIDIA Pets Design, NVIDIA Pets Robotics, NVIDIA Pets Research (editorial group credits)",""];
+  const abstract=$(".hf-abstract");
+  if(abstract){
+    parts.push("## Abstract","");
+    for(const el of abstract.querySelectorAll(".abstract-highlight,p"))parts.push(titleFor(el),"");
   }
-  parts.push("");
- }
- return parts.join("\n\n");
+  for(const section of document.querySelectorAll(".hf-paper-longform section")){
+    const heading=section.querySelector("h2");
+    if(heading)parts.push("## "+titleFor(heading),"");
+    for(const child of section.querySelectorAll("p,h3,.feature-point")){
+      if(child.classList?.contains("feature-point")){
+        const name=child.querySelector("h3"),p=child.querySelector("p");
+        if(name)parts.push("### "+titleFor(name));
+        if(p)parts.push(titleFor(p),"");
+      }else if(child.closest(".feature-point")){
+        continue;
+      }else if(child.tagName==="H3"){
+        parts.push("### "+titleFor(child));
+      }else if(child.tagName==="P"){
+        parts.push(titleFor(child),"");
+      }
+    }
+  }
+  parts.push("Editorial design specification: robot capabilities described here are illustrative, not verified official NVIDIA features.");
+  return parts.join("\n");
 }
-document.querySelectorAll("[data-copy]").forEach(btn=>btn.addEventListener("click",()=>{
- const abstract=$(".hf-abstract"),what=btn.dataset.copy;
- const v=what==="abstract"?abstract?.innerText.trim():markdownPaper();
- copyToClipboard(v||COPY_LABEL,btn);
-}));
-$("#copyPaperRef")?.addEventListener("click",e=>copyToClipboard(COPY_LABEL,e.currentTarget));
-document.querySelectorAll("[data-scroll]").forEach(btn=>btn.addEventListener("click",()=>{$("#"+btn.dataset.scroll)?.scrollIntoView({behavior:"smooth",block:"start"})}));
-const vote=$("#upvotePaper"),counter=$("#upvoteCount");let voted=getStored(voteKey,false)===true;
-function updateVote(){vote?.setAttribute("aria-pressed",String(voted));if(counter)counter.textContent=voted?"1":"0"}
-vote?.addEventListener("click",()=>{voted=!voted;setStored(voteKey,voted);updateVote()});updateVote();
-let comments=getStored(memoryKey,[]);if(!Array.isArray(comments))comments=[];comments=comments.filter(x=>x&&typeof x.text==="string").slice(0,40);
-const results=$("#commentResults"),input=$("#paperComment");
-function renderComments(){results.replaceChildren();for(const item of comments){const outer=document.createElement("div");outer.className="hf-comment";const by=document.createElement("strong");by.textContent="You  ·  ";const time=document.createElement("small");time.textContent=new Date(item.time).toLocaleDateString();const msg=document.createElement("p");msg.textContent=item.text;outer.append(by,time,msg);results.append(outer)}}
-$("#postComment")?.addEventListener("click",()=>{const content=(input?.value||"").trim();if(!content){input?.focus();return}comments.unshift({text:content.slice(0,800),time:Date.now()});comments=comments.slice(0,40);setStored(memoryKey,comments);input.value="";renderComments()});
-renderComments();
+async function writeClipboard(value,button){
+  let success=false;
+  try{await navigator.clipboard.writeText(value);success=true}catch{}
+  if(!success){
+    const t=document.createElement("textarea");t.value=value;t.style.cssText="position:fixed;left:-2000px;top:0;opacity:0;";document.body.append(t);t.select();
+    try{success=document.execCommand("copy")}catch{}t.remove();
+  }
+  if(button){
+    const label=button.dataset.buttonLabel||button.innerHTML;
+    button.dataset.buttonLabel=label;
+    if(success)button.textContent="Copied!";
+    else {button.textContent="Select to copy";button.title=value.slice(0,500)}
+    setTimeout(()=>{button.innerHTML=label},1100);
+  }
+}
+for(const btn of document.querySelectorAll("[data-copy]")){
+  btn.addEventListener("click",()=>{
+    const raw=$(".hf-abstract");
+    const text=btn.dataset.copy==="abstract"?titleFor(raw):asMarkdown();
+    writeClipboard(text,btn);
+  });
+}
+$("#copyPaperRef")?.addEventListener("click",e=>writeClipboard(paperId,e.currentTarget));
+for(const button of document.querySelectorAll("[data-scroll]")){
+  button.addEventListener("click",()=>$("#"+button.dataset.scroll)?.scrollIntoView({behavior:"smooth",block:"start"}));
+}
+const vote=$("#upvotePaper"),counter=$("#upvoteCount");
+let voted=getVote();
+function displayVote(){vote?.setAttribute("aria-pressed",String(voted));if(counter)counter.textContent=voted?"1":"0"}
+vote?.addEventListener("click",()=>{voted=!voted;setVote(voted);displayVote()});displayVote();
 })();
