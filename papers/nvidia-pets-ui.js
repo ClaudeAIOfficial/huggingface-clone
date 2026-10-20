@@ -6,7 +6,7 @@ function getVote(){try{return localStorage.getItem(voteKey)==="true"}catch{retur
 function setVote(v){try{localStorage.setItem(voteKey,String(v))}catch{}}
 function titleFor(el){return el?.textContent?.trim()||""}
 function asMarkdown(){
-  const parts=["# NVIDIA Pets","","Product paper · October 2026","","Authors: NVIDIA Pets Design, NVIDIA Pets Robotics, NVIDIA Pets Research (editorial group credits)",""];
+  const parts=["# NVIDIA Pets","","Product paper · October 2026","","Authors: NVIDIA, John Moreti (project-supplied attribution)",""];
   const abstract=$(".hf-abstract");
   if(abstract){
     parts.push("## Abstract","");
@@ -55,6 +55,7 @@ for(const btn of document.querySelectorAll("[data-copy]")){
   });
 }
 $("#copyPaperRef")?.addEventListener("click",e=>writeClipboard(paperId,e.currentTarget));
+$("#copyPaperBadge")?.addEventListener("click",e=>writeClipboard(paperId,e.currentTarget));
 for(const button of document.querySelectorAll("[data-scroll]")){
   button.addEventListener("click",()=>$("#"+button.dataset.scroll)?.scrollIntoView({behavior:"smooth",block:"start"}));
 }
