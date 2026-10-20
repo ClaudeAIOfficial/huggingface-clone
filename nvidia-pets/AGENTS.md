@@ -1,31 +1,36 @@
-# Four-agent runtime
+# Proposed Robot Companion Architecture
 
-The NVIDIA Pets demo runs four independent browser agents at once. Each agent is a small state machine with personality-specific dialogue.
+## Status
 
-## Agent lifecycle
+This document describes prospective hardware and software design goals for the NVIDIA Pets physical robot companion project. It does not document an implemented robotic hardware platform or a trained autonomous AI system.
 
-Each pet has:
-- An independent `id`, species and personality profile.
-- Separate `x/y` position and destination.
-- A movement speed.
-- Mood and needs: `energy`, `happiness`.
-- Action state: `following`, `playing`, `napping`.
-- Its own browser-local chat transcript and optionally remembered human name.
+## Robot bodies
 
-The scene updates from `requestAnimationFrame` with frame-time integration. Roaming targets are chosen independently, with drift constrained to the garden boundaries. Direct manipulation with pointer events temporarily overrides roaming.
+**Penguin:** Upright bipedal design with two feet, expressive optical face, limited-rotation flippers and compact neck assembly. Candidate movements include stable short steps, head turns and flipper gestures.
 
-## Chat behavior
+**Turtle:** Four-legged quadrupedal design with a segmented protective upper shell, four large contact feet and a mobile head or neck assembly. Candidate movements include low-speed stable crawling, small pivots and head tilts.
 
-The starter chat is a *simulation*. It selects per-agent answers using keyword-based intent matching and personality templates. User names and dialogue histories are stored separately in localStorage; there is no remote inference in this version.
+## Proposed embedded architecture
 
-For a real language model integration:
-1. Add a serverless `/api/pets/chat` endpoint.
-2. Use server-side secrets, not client-side keys.
-3. Send the active agent's system profile and that pet's conversation history.
-4. Use bounded context windows and provider rate limits.
-5. Replace the simulated response function only after the endpoint returns successfully.
-6. Surface model failures clearly; never fabricate backend responses.
+- Motion control loop with actuator torque and range limits
+- Short-range perception through suitable cameras and proximity sensors
+- Human input via buttons, gesture detection and optional microphones
+- Behavior layer for safe idle, follow, approach, retreat and rest states
+- Optional language-model interface gated by physical safety constraints
+- Device-level authentication and opt-in settings for any persistent memories
+- Battery, charge and temperature management
 
-## Asset loading
+## Safety requirements before physical demonstrations
 
-Transparent WEBP sprites were prepared from the four rendered animal images. The demo animates these images in 2D screen space. They are not rigged GLB meshes. For true 3D navigation, replace the sprite renderer with a scene graph and compatible animated models.
+Test a physical prototype for balance, stability, falls, collision forces, joint pinch hazards, audible noise, heat, charging safety, motor longevity and obstacle avoidance. No feature should be described as working until validated in actual hardware.
+
+## Demonstration media
+
+The NVIDIA Pets video is CGI and depicts plausible design direction, not empirical evidence of physical actuation or autonomous movement.
+
+## Project files
+
+- `README.md`: design overview
+- `pets.json`: current penguin and turtle concepts
+- `robot-repo.css`, `robot-repo.js`: presentation layer
+- `assets/robot-penguin.webp`, `assets/robot-turtle.webp`: robot renders

@@ -1,181 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="NVIDIA Pets: four digital pet companions, each with their own personality, memory and autonomous desktop behavior.">
-<title>NVIDIA Pets · Interactive Digital Companions</title>
+<title>NVIDIA Pets · Robot Companions</title>
+<meta name="description" content="NVIDIA Pets explores real-world robotic companions inspired by a penguin and a turtle, with expressive movement and approachable industrial design.">
+<meta property="og:title" content="NVIDIA Pets · Physical Robot Companions">
+<meta property="og:description" content="Meet two animal-inspired robot companion designs made for the physical world.">
 <link rel="icon" href="https://huggingface.co/front/assets/huggingface_logo-noborder.svg">
-<link rel="stylesheet" href="./nvidia-pets/site.css">
-<link rel="stylesheet" href="./nvidia-pets/model-repo.css">
-<script defer src="./nvidia-pets/site.js"></script>
-<script defer src="./nvidia-pets/model-repo.js"></script>
+<link rel="stylesheet" href="./nvidia-pets/robot-repo.css">
+<script defer src="./nvidia-pets/robot-repo.js"></script>
 </head>
 <body>
-<header class="topbar">
- <div class="topnav wrap">
-   <a class="hf-logo" href="./index.html"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt=""> <b>Hugging Face</b></a>
-   <span class="topsearch"><span aria-hidden="true">⌕</span><input aria-label="Find a section" placeholder="Search within this repository..." id="repoSearch"></span>
-   <nav aria-label="Site navigation">
-    <a href="./index.html">Home</a>
-    <a href="./nvidia.html">Organizations</a>
-    <a href="#demo" id="navDemo">Demo</a>
-    <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">Source ↗</a>
-   </nav>
+<header class="header"><div class="container navigation">
+ <a class="hf-brand" href="./index.html"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt=""><b>Hugging Face</b></a>
+ <form id="page-search" class="search" role="search"><span aria-hidden="true">⌕</span><input id="search-term" placeholder="Search this project..." aria-label="Search this project"><button type="submit" aria-label="Find section"><span aria-hidden="true">↵</span></button></form>
+ <nav><a href="./index.html">Models</a><a href="./nvidia.html">NVIDIA</a><a href="https://huggingface.co/docs" target="_blank" rel="noopener">Docs</a><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">Source ↗</a></nav>
+</div></header>
+<div class="container">
+ <div class="crumbs"><a href="./nvidia.html">nvidia</a><span>/</span><b>NVIDIA-Pets</b><span class="crumb-tag">robotics concepts</span></div>
+ <section class="product-heading">
+ <div><div class="kicker">ROBOT COMPANIONS · DESIGN COLLECTION</div><div class="title-with-icon"><span class="project-symbol" aria-hidden="true">◉</span><h1>NVIDIA Pets</h1></div><p>Animal-inspired robots, designed for the real world.</p></div>
+ <a class="button button-primary" href="#film">Watch product film <span>↗</span></a>
+ </section>
+ <div class="tags"><span class="tag active">Design concepts</span><span class="tag">Robotics</span><span class="tag">Physical companions</span><span class="tag">Embodied AI</span><span class="tag">Two designs</span><span class="tag">Version 0.2</span></div>
+ <div class="tabbar" role="tablist" aria-label="Repository sections">
+  <button class="current" id="tab-overview" data-tab="overview" role="tab" aria-selected="true">▤ Overview</button>
+  <button id="tab-engineering" data-tab="engineering" role="tab" aria-selected="false">⚙ Engineering</button>
+  <button id="tab-files" data-tab="files" role="tab" aria-selected="false">▦ Files and versions</button>
+  <button id="tab-community" data-tab="community" role="tab" aria-selected="false">☷ Community <span id="discussionCount">0</span></button>
+  <button id="tab-about" data-tab="about" role="tab" aria-selected="false">About</button>
  </div>
-</header>
-<div class="wrap">
- <div class="breadcrumbs model-crumbs"><a href="./nvidia.html">nvidia</a><span>/</span><strong>NVIDIA-Pets</strong><span class="repo-model-identifier">interactive agents</span></div>
- <div class="repohead">
-  <div class="titleline"><div class="repoicon">🐾</div><div><div class="eyebrow">Interactive repository · v0.1</div><h1>NVIDIA Pets</h1><p>Four little companions. Four different minds. One shared desktop.</p><div class="author-byline"><img src="https://cdn-avatars.huggingface.co/v1/production/uploads/65df9200dc3292a8983e5017/Vs5FPVCH-VZBipV3qKTuy.png" alt=""> <a href="./nvidia.html">NVIDIA organization directory</a><span>·</span><span>Digital companion project</span></div></div></div>
-  <div class="repo-actions"><button type="button" class="button" id="favoriteRepo" aria-pressed="false">♡ Like <span id="likeCount">0</span></button><button type="button" class="button" id="saveRepo" aria-pressed="false">☆ Save</button><a class="button primary" href="#demo" data-switch="demo">Try live demo ↗</a></div>
- </div>
- <div class="chips model-tags"><span class="tag dot"><i></i> Interactive demo</span><span class="tag">Multi-agent</span><span class="tag">Autonomous movement</span><span class="tag">JavaScript</span><span class="tag">4 companions</span><span class="tag">Local memory</span><span class="tag">MIT (code)</span></div>
- <div class="tabs model-tabs" role="tablist" aria-label="Repository sections">
-    <button role="tab" id="tab-overview" class="selected" data-tab="overview" aria-selected="true">▤ Model card</button>
-    <button role="tab" id="tab-files" data-tab="files" aria-selected="false">▦ Files and versions <span class="subtab-stat">11</span></button>
-    <button role="tab" id="tab-community" data-tab="community" aria-selected="false">☷ Community <span id="communityCount" class="subtab-stat">0</span></button>
-    <button role="tab" id="tab-demo" data-tab="demo" aria-selected="false">◉ Live demo</button>
-    <button role="tab" id="tab-about" data-tab="about" aria-selected="false">About</button>
- </div>
- <div class="pagegrid">
- <main id="maincontent">
-  <section id="overview" class="tabpanel visible" role="tabpanel" aria-labelledby="tab-overview">
-   <div class="section-label"><span>README.md</span><span>Updated for v0.1</span></div>
-   <div class="markdown">
-    <div class="releasehero"><div><div class="eyebrow light">THE DIGITAL COMPANION COLLECTION</div><h2>NVIDIA Pets</h2><p>Meet a new generation of desktop companions: animals that wander, react, remember, and have their own voices.</p><a href="#demo" class="light-button" data-switch="demo">Meet the pets →</a></div><div class="mini-creatures"><img src="./nvidia-pets/assets/penguin.webp" alt="Penguin"><img src="./nvidia-pets/assets/otter.webp" alt="Otter"><img src="./nvidia-pets/assets/capybara.webp" alt="Capybara"><img src="./nvidia-pets/assets/red-panda.webp" alt="Red panda"></div></div>
-    <h2>Four companions, four personalities</h2>
-    <p>Each pet runs its own behavior loop, keeps a separate interaction history, and responds differently to the same conversation. They can wander around a shared scene, nap, play, and follow your cursor.</p>
-    <div class="pet-cards">
-      <article class="pet-card"><img src="./nvidia-pets/assets/penguin.webp" alt="3D penguin"><div class="pet-type">PENGUIN · CURIOUS</div><h3>Pip</h3><p>The cautious explorer. Loves tiny adventures, asks questions, and occasionally trips over nothing.</p><button data-pick="penguin">Talk to Pip →</button></article>
-      <article class="pet-card"><img src="./nvidia-pets/assets/otter.webp" alt="3D otter"><div class="pet-type">OTTER · PLAYFUL</div><h3>Ollie</h3><p>The troublemaker. Collects imaginary treasures, asks to play, and has endless energy.</p><button data-pick="otter">Talk to Ollie →</button></article>
-      <article class="pet-card"><img src="./nvidia-pets/assets/capybara.webp" alt="3D capybara"><div class="pet-type">CAPYBARA · CALM</div><h3>Cappy</h3><p>The peaceful thinker. Prefers slow strolls, quiet company, and thoughtful chats.</p><button data-pick="capybara">Talk to Cappy →</button></article>
-      <article class="pet-card"><img src="./nvidia-pets/assets/red-panda.webp" alt="3D red panda"><div class="pet-type">RED PANDA · MISCHIEVOUS</div><h3>Rumi</h3><p>The clever climber. Has opinions on everything, loves puzzles, and makes funny remarks.</p><button data-pick="red-panda">Talk to Rumi →</button></article>
+ <div class="content-grid">
+  <main>
+   <section id="overview" class="tabpanel shown" role="tabpanel" aria-labelledby="tab-overview">
+    <div class="document-bar"><strong>Product overview</strong><span>NVIDIA Pets · v0.2</span></div>
+    <div class="page-section">
+     <div class="intro"><span class="eyebrow">THE NEXT STEP FOR COMPANION ROBOTICS</span><h2>Meet NVIDIA Pets.</h2><p>Small, expressive robots inspired by animals. Designed to move through real spaces, react to their surroundings, and someday become familiar companions at home.</p><a class="inline-action" href="#film">Watch the concept film <span aria-hidden="true">↗</span></a></div>
+     <h2 id="companions">Meet the companions</h2>
+     <p>Two distinct robotic designs share the same clean white-and-orange industrial language. Each has a different body, movement concept and personality, built around what a physical device could realistically express.</p>
+     <div class="pet-grid">
+      <article class="pet-card"><div class="pet-picture"><img src="./nvidia-pets/assets/robot-penguin.webp" alt="Penguin-inspired robot with white body, orange beak and feet"></div><div class="pet-caption"><span>MODEL 01</span><h3>Robotic Penguin</h3><p>Rounded optical head, articulated flippers, a compact upright body and small orange feet. Designed around expressive head movements and a friendly, controlled waddle.</p></div></article>
+      <article class="pet-card"><div class="pet-picture"><img src="./nvidia-pets/assets/robot-turtle.webp" alt="Turtle-inspired robot with segmented white shell and four feet"></div><div class="pet-caption"><span>MODEL 02</span><h3>Robotic Turtle</h3><p>A stable four-legged platform with a segmented shell and mobile neck. Designed around slow, deliberate movement, observation and a calm personality.</p></div></article>
+     </div>
+     <h2 id="film">A first look at NVIDIA Pets</h2><p>See the companion designs moving together in our short CGI concept film. The visuals illustrate a proposed direction for physical robots, not footage of manufactured hardware.</p>
+     <div class="video-container"><video controls playsinline preload="metadata" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/3692a45e-161e-4ed5-abc3-b23541d4fa26.jpg" aria-label="NVIDIA Pets concept film"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/55a240cf-6a00-4455-b21c-77b6df1cd6e2.mp4" type="video/mp4">Your browser does not support the video. <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/55a240cf-6a00-4455-b21c-77b6df1cd6e2.mp4">Open the film</a>.</video></div>
+     <div class="video-description"><span>Concept film · Penguin + Turtle</span><a href="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/55a240cf-6a00-4455-b21c-77b6df1cd6e2.mp4" target="_blank" rel="noopener">Open video ↗</a></div>
+     <h2 id="vision">Built for everyday spaces</h2><p>Imagine a small robotic companion that can look toward you when you speak, take a few careful steps closer, or wait nearby while you work. NVIDIA Pets explores that kind of embodied interaction through a pair of approachable animal-inspired designs.</p>
+     <div class="feature-grid">
+      <div><span>01</span><b>Expressive movement</b><p>Small head turns, gentle gestures and distinct movement patterns.</p></div>
+      <div><span>02</span><b>Perception</b><p>Future vision and proximity sensing for physical-world interaction.</p></div>
+      <div><span>03</span><b>Personality</b><p>Individual behaviors and optional voice-based companionship.</p></div>
+      <div><span>04</span><b>Modular construction</b><p>Rounded shells, compact actuators and replaceable hardware elements.</p></div>
+     </div>
+     <h2 id="development">From concept to companion</h2><p>The current stage contains industrial design renders, visual demonstrations and preliminary behavior ideas. It does not include manufactured robot units or validated autonomy. The next engineering steps would be mechanical prototypes, electronic control, gait testing and safety evaluation.</p>
+     <div class="notice"><strong>Development status:</strong> These are proposed physical robot companions. The current images and video use CGI, not footage of working robots. The project does not claim an official NVIDIA product launch.</div>
     </div>
-    <h2>One desktop. Four independent agents.</h2>
-    <p>This release demonstrates the interaction system: pet-specific state, local chat memory, click-and-drag movement, individual needs and actions, and an autonomous roaming engine. The chat runs as a local personality simulation. The repository includes notes for connecting a language model later.</p>
-    <div class="features"><div><strong>↝ Autonomous movement</strong><p>Independent wandering, pauses, head turns and pacing.</p></div><div><strong>◉ Distinct personalities</strong><p>Pet-specific dialogue, moods, and interaction patterns.</p></div><div><strong>▤ Local memory</strong><p>Separate histories saved in the current browser.</p></div><div><strong>✦ Shared space</strong><p>All four roam together in one desktop scene.</p></div></div>
-    <h2>Getting started</h2><ol><li>Open the <a href="#demo" data-switch="demo">live demo</a>.</li><li>Select a pet to start talking or drag it around the scene.</li><li>Try <strong>Feed</strong>, <strong>Play</strong>, <strong>Nap</strong>, or <strong>Follow</strong>.</li><li>Switch pets to discover their different behaviors and conversations.</li></ol>
-    <h2 id="description">Model description</h2>
-    <p><strong>NVIDIA Pets</strong> is a four-companion interactive browser runtime. It brings a penguin, otter, capybara and red panda together in one shared digital space, with separate conversation histories, movement goals, habits, and moods.</p>
-    <p>The release demonstrates client-side agent systems rather than a pretrained language model. Each companion follows its own behavior loop and responds through a local personality dialogue engine. The images are realistic 3D-style renders displayed as animated sprites, not rigged 3D meshes.</p>
-    <h2 id="capabilities">Capabilities</h2>
-    <div class="spec-grid">
-     <div><span>Agents</span><strong>4 independent companions</strong></div>
-     <div><span>Input</span><strong>Text, click, drag, pet actions</strong></div>
-     <div><span>Output</span><strong>Dialogue, motion, behavior state</strong></div>
-     <div><span>Memory</span><strong>Per-pet browser storage</strong></div>
-     <div><span>Runtime</span><strong>Client-side JavaScript</strong></div>
-     <div><span>Model weights</span><strong>Not included</strong></div>
+   </section>
+   <section id="engineering" class="tabpanel" role="tabpanel" aria-labelledby="tab-engineering">
+    <div class="document-bar"><strong>Design and engineering</strong><span>Technical direction</span></div>
+    <div class="page-section">
+     <h2>Hardware architecture</h2><p>The two robots are conceived as small, self-contained physical devices. Their shells, joints, sensor positions, and feet follow a consistent industrial design system, while their locomotion mechanisms differ.</p>
+     <div class="spec-grid"><div><small>ROBOTICS STAGE</small><b>Design concept</b></div><div><small>BODY CONFIGURATIONS</small><b>Biped + quadruped</b></div><div><small>USER INTERACTION</small><b>Motion, vision and proposed voice</b></div><div><small>COMPUTE</small><b>To be selected</b></div></div>
+     <h3>Mechanical systems</h3><p>The penguin concept calls for stable low-speed bipedal movement and mechanically limited flipper gestures. The turtle concept favors a low center of gravity, short steps and an articulating neck. Both would require motion-control work and physical testing.</p>
+     <h3>Sensing and autonomy</h3><p>Future versions could use cameras, microphones, proximity sensors, and embedded controllers to recognize interaction cues, avoid nearby objects and respond through movement. These subsystems remain proposed features, not demonstrated hardware capabilities.</p>
+     <h3>Safety and buildability</h3><p>A functioning product would require torque limits, fall detection, obstacle avoidance, safe charging, thermal design and durability testing. The design aims to make moving parts simple and accessible, but there are no published mechanical performance results yet.</p>
+     <h2>Research and design report</h2><p>A companion report documents the concept, intended hardware architecture, and the distinction between prototype software and physical robotics.</p><a class="button button-secondary" href="./papers/nvidia-pets.html">Open design report ↗</a>
     </div>
-    <h2 id="architecture">Architecture</h2>
-    <p>Each pet maintains an independent state containing position, destination, movement speed, energy, happiness, sleep state and follow mode. A shared animation loop advances each agent while retaining separate behavior decisions. The dialogue engine selects pet-specific responses from local rules.</p>
-    <pre class="code-sample"><code>PetAgent
-├── Character: Penguin | Otter | Capybara | Red Panda
-├── Autonomous navigation and idle behavior
-├── Personality-specific dialogue
-├── Energy, happiness and sleep state
-├── Separate local conversation history
-└── Input actions: Feed, Play, Nap, Follow</code></pre>
-    <h2 id="usage">Usage and quick start</h2>
-    <p>Open the interactive playground directly in a browser, or clone the source project and run a local HTTP server. No GPU or inference token is required for the prototype.</p>
-    <div class="code-head"><span>Terminal</span><button class="copy-snippet" data-copy-target="clone-command">Copy</button></div>
-    <pre class="code-sample" id="clone-command"><code>git clone https://github.com/ClaudeAIOfficial/huggingface-clone.git
-cd huggingface-clone
-python -m http.server 8000
-# Open http://localhost:8000/nvidia-pets.html</code></pre>
-    <div class="code-head"><span>JavaScript · example agent definition</span><button class="copy-snippet" data-copy-target="pet-config-example">Copy</button></div>
-    <pre class="code-sample" id="pet-config-example"><code>const pet = {
-  id: "penguin",
-  name: "Pip",
-  personality: "curious",
-  motion: "wander",
-  memory: "localStorage",
-  actions: ["feed", "play", "nap", "follow"]
-};</code></pre>
-    <h2 id="training">Training details and evaluation</h2>
-    <p><strong>Training:</strong> No proprietary or NVIDIA-trained foundation model is included in this repository. The dialogue layer uses predefined local personality patterns. Model training statistics and inference benchmarks are therefore not applicable to this version.</p>
-    <p><strong>Verification:</strong> The web runtime can be checked for four simultaneously visible pets, independent roaming, distinct chat histories, individual actions and mobile layout behavior.</p>
-    <h2 id="requirements">Requirements and deployment</h2>
-    <p>Modern desktop or mobile browser with JavaScript enabled. No installation is needed to use the hosted demo. To deploy your own copy, serve these static files from Vercel, GitHub Pages, or any static file host.</p>
-    <p><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">Source files and documentation ↗</a></p>
-    <h2 id="limitations">Limitations and responsible use</h2>
-    <p>Dialogue is a browser-local simulation and should not be presented as unrestricted language-model intelligence. The demo does not access real microphones, control your operating-system desktop, or save conversations to a server. Pet sprite motion is 2D with 3D-rendered imagery. Browser storage can be cleared at any time.</p>
-    <h2>Roadmap</h2><p>Future integrations can add language-model responses, synthesized voices, better skeletal 3D animation, persistent accounts, and real desktop overlays. The current release is a browser prototype, with 3D-rendered sprites rather than rigged 3D meshes.</p>
-   </div>
-  </section>
-  <section id="demo" class="tabpanel" role="tabpanel" aria-labelledby="tab-demo">
-   <div class="demo-heading"><div><span class="eyebrow">Interactive playground</span><h2>Meet your pets</h2><p>Click a pet to chat. Drag it to a new spot, or let everyone roam.</p></div><div class="status"><span class="live-dot"></span> 4 companions running</div></div>
-   <div class="stage" id="petStage" aria-label="Four digital pets roaming together">
-    <div class="stage-top"><span class="scene-pill">● Desktop garden</span><button type="button" id="pauseAll">Pause movement</button></div>
-    <div class="stage-floor"></div>
-    <button class="pet-sprite" data-pet="penguin" aria-label="Select Pip the penguin"><img src="./nvidia-pets/assets/penguin.webp" alt=""><span class="pet-label">Pip <small>curious</small></span></button>
-    <button class="pet-sprite" data-pet="otter" aria-label="Select Ollie the otter"><img src="./nvidia-pets/assets/otter.webp" alt=""><span class="pet-label">Ollie <small>playful</small></span></button>
-    <button class="pet-sprite" data-pet="capybara" aria-label="Select Cappy the capybara"><img src="./nvidia-pets/assets/capybara.webp" alt=""><span class="pet-label">Cappy <small>calm</small></span></button>
-    <button class="pet-sprite" data-pet="red-panda" aria-label="Select Rumi the red panda"><img src="./nvidia-pets/assets/red-panda.webp" alt=""><span class="pet-label">Rumi <small>mischievous</small></span></button>
-    <div class="stage-help">Four independent behavior loops · Drag any pet to move it</div>
-   </div>
-   <div class="interaction">
-    <div class="interaction-main">
-     <div class="agent-tabs" id="petTabs" aria-label="Choose a pet"><button data-select="penguin" class="active">Pip</button><button data-select="otter">Ollie</button><button data-select="capybara">Cappy</button><button data-select="red-panda">Rumi</button></div>
-     <div class="chat-top"><div><strong id="chatTitle">Pip · Penguin</strong><span id="chatMood">Curious</span></div><button type="button" id="clearChat" title="Clear this pet's local chat">Clear chat</button></div>
-     <div class="messages" id="messages" aria-live="polite" aria-label="Conversation"></div>
-     <form id="chatForm" class="composer"><label class="sr-only" for="chatInput">Message your pet</label><input id="chatInput" autocomplete="off" placeholder="Ask your pet something..." maxlength="500"><button type="submit" id="sendChat">Send ↗</button></form>
-     <p class="simulation-note">Chat responses use local personality rules. A language-model connection can be added separately.</p>
+   </section>
+   <section id="files" class="tabpanel" role="tabpanel" aria-labelledby="tab-files">
+    <div class="document-bar"><strong>Files and versions</strong><span>Selected repository resources</span></div>
+    <div class="repo-files">
+     <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets/assets" target="_blank" rel="noopener"><span>▧</span><b>assets/</b><small>Robot design images</small></a>
+     <a href="./nvidia-pets/assets/robot-penguin.webp" target="_blank"><span>▧</span><b>robot-penguin.webp</b><small>Product render</small></a>
+     <a href="./nvidia-pets/assets/robot-turtle.webp" target="_blank"><span>▧</span><b>robot-turtle.webp</b><small>Product render</small></a>
+     <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/README.md" target="_blank" rel="noopener"><span>▤</span><b>README.md</b><small>Project overview</small></a>
+     <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/AGENTS.md" target="_blank" rel="noopener"><span>▤</span><b>AGENTS.md</b><small>Planned robotics architecture</small></a>
+     <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/pets.json" target="_blank" rel="noopener"><span>▣</span><b>pets.json</b><small>Robot design manifest</small></a>
+     <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener"><span>⌘</span><b>Browse the full source tree</b><small>GitHub ↗</small></a>
     </div>
-    <aside class="interaction-actions"><h3>Pet actions</h3><div class="action-grid"><button data-action="feed"><span>🥕</span> Feed</button><button data-action="play"><span>🎾</span> Play</button><button data-action="nap"><span>💤</span> Nap</button><button data-action="follow"><span>↝</span> Follow</button></div><p id="actionFeedback">Pip is exploring.</p><div class="statbar"><label>Happiness <span id="happyValue">78%</span></label><div class="bar"><div id="happyBar"></div></div></div><div class="statbar"><label>Energy <span id="energyValue">82%</span></label><div class="bar energy"><div id="energyBar"></div></div></div><p class="tip">Each pet has its own mood, stats, memories and behavior state.</p></aside>
-   </div>
-  </section>
-  <section id="files" class="tabpanel" role="tabpanel" aria-labelledby="tab-files">
-   <div class="repo-files-toolbar"><div class="file-branch">⌁ main <span>▾</span></div><div class="file-summary"><span>11 files</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/commits/main/nvidia-pets" target="_blank" rel="noopener">Commit history ↗</a><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">View on GitHub ↗</a></div></div>
-   <div class="latest-commit"><strong>Latest version · v0.1</strong><span>Four independent pet agents, responsive demo and documentation</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/commits/main/nvidia-pets" target="_blank" rel="noopener">History</a></div>
-   <div class="files-table" role="table" aria-label="Repository files">
-    <div class="file-row" role="row"><span>▦</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets/assets" target="_blank" rel="noopener">assets/</a><small>4 images</small><small>Pet artwork</small></div>
-    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/penguin.webp" target="_blank">penguin.webp</a><small>9.5 KB</small><small>Image</small></div>
-    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/otter.webp" target="_blank">otter.webp</a><small>12.2 KB</small><small>Image</small></div>
-    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/capybara.webp" target="_blank">capybara.webp</a><small>11.7 KB</small><small>Image</small></div>
-    <div class="file-row nested" role="row"><span>▧</span><a href="./nvidia-pets/assets/red-panda.webp" target="_blank">red-panda.webp</a><small>11.8 KB</small><small>Image</small></div>
-    <div class="file-row" role="row"><span>▤</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/README.md" target="_blank" rel="noopener">README.md</a><small>Documentation</small><small>Model card</small></div>
-    <div class="file-row" role="row"><span>▤</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a><small>Architecture</small><small>Agent design</small></div>
-    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/pets.json" target="_blank" rel="noopener">pets.json</a><small>JSON</small><small>Agent manifest</small></div>
-    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/site.js" target="_blank" rel="noopener">site.js</a><small>JavaScript</small><small>Runtime</small></div>
-    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/site.css" target="_blank" rel="noopener">site.css</a><small>CSS</small><small>Interface</small></div>
-    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/model-repo.css" target="_blank" rel="noopener">model-repo.css</a><small>CSS</small><small>Repository layout</small></div>
-    <div class="file-row" role="row"><span>▣</span><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/blob/main/nvidia-pets/model-repo.js" target="_blank" rel="noopener">model-repo.js</a><small>JavaScript</small><small>Repository controls</small></div>
-   </div>
-   <p class="subtle">The original source files and commit history are available through the links above. Images open directly from this site.</p>
-  </section>
-  <section id="community" class="tabpanel" role="tabpanel" aria-labelledby="tab-community">
-   <div class="community-head"><div><h2>Community</h2><p>Discuss ideas, request new pets and share feedback.</p></div><button class="button primary" id="newDiscussion">+ New discussion</button></div>
-   <div class="community-note">Posts in this demo are private to this browser. To submit a public issue, use <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/issues" target="_blank" rel="noopener">GitHub Issues ↗</a>.</div>
-   <form id="discussionForm" class="discussion-form" hidden>
-    <label for="discussionTitle">Discussion title</label><input id="discussionTitle" required maxlength="100" placeholder="Suggest a feature or ask a question">
-    <label for="discussionBody">Your message</label><textarea id="discussionBody" required maxlength="1200" rows="4" placeholder="What would you like to discuss?"></textarea>
-    <div class="discussion-actions"><button type="button" class="button" id="cancelDiscussion">Cancel</button><button class="button primary" type="submit">Save discussion locally</button></div>
-   </form>
-   <div class="discussion-controls"><div class="discussion-pills"><button class="active" data-discussion-filter="all">All</button><button data-discussion-filter="discussion">Discussions</button><button data-discussion-filter="suggestion">Suggestions</button></div><input id="discussionSearch" placeholder="Filter by title" aria-label="Filter discussions"></div>
-   <div id="discussionList" class="discussion-list"></div>
-  </section>
-  <section id="about" class="tabpanel" role="tabpanel" aria-labelledby="tab-about">
-    <div class="section-label">About this project</div>
-    <div class="markdown"><h2>Digital companions</h2><p>NVIDIA Pets explores expressive animal companions living together in a shared digital environment. Each character has its own behavior state and interactive dialogue.</p><h3>Implementation</h3><p>Client-side HTML, CSS and JavaScript power the demo. Four independent pet objects handle navigation, energy, happiness, action selection and local conversation history. The current responses are deterministic personality scripts, not inference from a trained pet language model.</p><h3>Project attribution</h3><p>This is an independently built digital-pet project. NVIDIA has not announced, developed or endorsed it.</p></div>
-  </section>
- </main>
- <aside class="reporail model-rail">
-   <div class="railcard use-model-card"><div class="rail-title">Use this model</div>
-     <p>Run the interactive browser companions. No model server or GPU required for the starter demo.</p>
-     <button class="model-primary" id="openUsage">▣ Show quick start <span>▾</span></button>
-     <div class="model-usage" id="usagePanel" hidden><div class="code-head"><span>Terminal</span><button class="copy-snippet" data-copy-target="railUsageCode">Copy</button></div><pre id="railUsageCode">git clone https://github.com/ClaudeAIOfficial/huggingface-clone.git
-cd huggingface-clone
-python -m http.server 8000</pre><a href="#demo" data-switch="demo">Open live demo ↗</a></div>
-   </div>
-   <div class="railcard deploy-card"><div class="rail-title">Deploy</div><p>Use the static files on a host such as Vercel, or explore the live browser playground.</p><a class="deploy-btn" href="#demo" data-switch="demo">▶ Open interactive demo</a><a class="deploy-link" href="https://vercel.com/new" target="_blank" rel="noopener">Deploy your own copy ↗</a></div>
-   <div class="railcard"><h3>Model details</h3><div class="railrow"><span>Task</span><b>Interactive agents</b></div><div class="railrow"><span>Language</span><b>JavaScript</b></div><div class="railrow"><span>Agents</span><b>4</b></div><div class="railrow"><span>Version</span><b>v0.1</b></div><div class="railrow"><span>Framework</span><b>Browser API</b></div><div class="railrow"><span>Weights</span><b>None</b></div><div class="railrow"><span>License</span><b>MIT (code)</b></div><a class="rail-link" href="#files" data-switch="files">Browse files ↗</a></div>
-   <div class="railcard toc-rail"><h3>On this page</h3><a href="#description">Description</a><a href="#capabilities">Capabilities</a><a href="#architecture">Architecture</a><a href="#usage">Usage</a><a href="#training">Training and evaluation</a><a href="#requirements">Deployment</a><a href="#limitations">Limitations</a></div>
- </aside>
+   </section>
+   <section id="community" class="tabpanel" role="tabpanel" aria-labelledby="tab-community">
+    <div class="document-bar"><strong>Community</strong><span>Design feedback</span></div>
+    <div class="page-section">
+     <div class="community-intro"><div><h2>Shape the future of NVIDIA Pets</h2><p>Share ideas for physical movements, sensors, interactions and product design.</p></div><button class="button button-primary" id="newDiscussion" type="button">+ New discussion</button></div>
+     <div class="notice small">Posts in this preview stay in your browser. For shared discussion, use <a href="https://github.com/ClaudeAIOfficial/huggingface-clone/issues" target="_blank" rel="noopener">GitHub Issues ↗</a>.</div>
+     <form id="discussionForm" class="discussion-form" hidden><label for="discussionTitle">Discussion title</label><input id="discussionTitle" required maxlength="100" placeholder="A feature or engineering question"><label for="discussionBody">Message</label><textarea id="discussionBody" required maxlength="1200" rows="4" placeholder="What would you like to explore?"></textarea><div class="form-actions"><button class="button button-secondary" type="button" id="cancelDiscussion">Cancel</button><button class="button button-primary" type="submit">Save locally</button></div></form>
+     <div id="discussionList" class="discussion-list"></div>
+    </div>
+   </section>
+   <section id="about" class="tabpanel" role="tabpanel" aria-labelledby="tab-about">
+    <div class="document-bar"><strong>About NVIDIA Pets</strong><span>Project notes</span></div>
+    <div class="page-section"><h2>Robot companionship</h2><p>NVIDIA Pets is an industrial design exploration into animal-inspired physical robot companions, beginning with a penguin and a turtle. The project emphasizes approachable form, expressive motion and the possibility of embodied personal AI.</p><p>The current video and renders are concept visualizations. There are no claimed manufactured units, verified hardware demonstrations or official NVIDIA release associated with this independent project.</p><h2>Design material</h2><a href="./papers/nvidia-pets.html">Read the accompanying design report ↗</a></div>
+   </section>
+  </main>
+  <aside class="right-sidebar">
+   <div class="side-card"><div class="side-head">NVIDIA Pets</div><img class="side-preview" src="./nvidia-pets/assets/robot-penguin.webp" alt="Robotic penguin concept"><p>Two distinctive robot companions designed for real-world interaction.</p><a class="button button-primary full" href="#film">Watch concept film ↗</a></div>
+   <div class="side-card"><h3>Project details</h3><div class="property"><span>Type</span><b>Physical robot concepts</b></div><div class="property"><span>Collection</span><b>2 companion designs</b></div><div class="property"><span>Locomotion</span><b>2-leg / 4-leg</b></div><div class="property"><span>Stage</span><b>Concept and research</b></div><div class="property"><span>Product video</span><b>CGI</b></div><div class="property"><span>Release</span><b>v0.2</b></div></div>
+   <div class="side-card"><h3>Related documents</h3><a class="side-link" href="./papers/nvidia-pets.html">▤ NVIDIA Pets design report ↗</a><a class="side-link" href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">⌘ Source repository ↗</a></div>
+  </aside>
  </div>
- <footer><p>NVIDIA Pets · Independent digital companion project. No affiliation with or endorsement by NVIDIA.</p><a href="./index.html">Back to site</a></footer>
+ <footer><span>NVIDIA Pets · Robot companion design project</span><span>Concept visuals, not manufactured hardware</span><a href="./nvidia.html">Back to NVIDIA directory</a></footer>
 </div>
-</body>
-</html>
+</body></html>

@@ -1,82 +1,52 @@
 {
   "project": "NVIDIA Pets",
-  "version": "0.1.0",
-  "engine": "browser-multi-agent-demo",
-  "inference": "local-personality-simulation",
-  "attribution": "Independent project, not endorsed by NVIDIA",
-  "agents": [
+  "version": "0.2.0",
+  "category": "physical robotic companion design",
+  "stage": "concept visualization",
+  "is_hardware_manufactured": false,
+  "is_official_nvidia_product": false,
+  "companion_count": 2,
+  "companions": [
     {
       "id": "penguin",
-      "name": "Pip",
-      "species": "Penguin",
-      "personality": "curious",
-      "speed": 0.059,
-      "image": "assets/penguin.webp",
-      "behaviors": [
-        "wander",
+      "label": "Robotic Penguin",
+      "body_type": "biped",
+      "image": "assets/robot-penguin.webp",
+      "design_features": [
+        "two optical eyes",
+        "articulated flippers",
+        "compact mechanical joints",
+        "orange beak",
+        "two broad feet"
+      ],
+      "proposed_movements": [
         "waddle",
-        "chat",
-        "nap",
-        "follow"
+        "turn head",
+        "flipper gesture"
       ]
     },
     {
-      "id": "otter",
-      "name": "Ollie",
-      "species": "Otter",
-      "personality": "playful",
-      "speed": 0.087,
-      "image": "assets/otter.webp",
-      "behaviors": [
-        "wander",
-        "run",
-        "chat",
-        "play",
-        "follow"
-      ]
-    },
-    {
-      "id": "capybara",
-      "name": "Cappy",
-      "species": "Capybara",
-      "personality": "calm",
-      "speed": 0.03,
-      "image": "assets/capybara.webp",
-      "behaviors": [
-        "wander",
-        "rest",
-        "chat",
-        "nap",
-        "follow"
-      ]
-    },
-    {
-      "id": "red-panda",
-      "name": "Rumi",
-      "species": "Red Panda",
-      "personality": "mischievous",
-      "speed": 0.066,
-      "image": "assets/red-panda.webp",
-      "behaviors": [
-        "wander",
-        "play",
-        "chat",
-        "nap",
-        "follow"
+      "id": "turtle",
+      "label": "Robotic Turtle",
+      "body_type": "quadruped",
+      "image": "assets/robot-turtle.webp",
+      "design_features": [
+        "segmented shell",
+        "one visible optical eye in profile",
+        "mobile mechanical neck",
+        "four contact feet"
+      ],
+      "proposed_movements": [
+        "crawl",
+        "pivot",
+        "tilt head"
       ]
     }
   ],
-  "storage": [
-    "localStorage:conversation",
-    "localStorage:name_memory"
-  ],
-  "ui": [
-    "all-four-on-screen",
-    "individual-chat",
-    "drag",
-    "feed",
-    "play",
-    "nap",
-    "follow"
-  ]
+  "media": {
+    "type": "CGI concept film",
+    "source": "Video Project 18.mp4"
+  },
+  "hardware_results": "none",
+  "notes": "Concept illustrations, not validated physical devices."
 }

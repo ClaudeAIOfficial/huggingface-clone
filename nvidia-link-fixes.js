@@ -48,7 +48,7 @@ function showNvidiaPetsPaper(){
     img.removeAttribute("crossorigin");
   }
   const title=item.querySelector("p");
-  if(title)title.textContent="NVIDIA Pets: Interactive Multi-Agent Digital Companions";
+  if(title)title.textContent="NVIDIA Pets: Designing Real-World Robotic Companions";
   paperList.prepend(item);
 }
 if(document.readyState==="loading")

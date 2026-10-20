@@ -1,7 +1,7 @@
 (()=>{"use strict";
 const $=s=>document.querySelector(s);
-const abstractText="NVIDIA Pets is a browser-based digital companion prototype that explores how independent robotic-animal characters can display movement, personality-specific responses, and memory within a shared interactive environment.";
-const citation="NVIDIA Pets project contributors. (2026). NVIDIA Pets: Interactive Multi-Agent Digital Companions with Autonomous Behavior and Local Memory. Independent project report, version 0.1. https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets";
+const abstractText="NVIDIA Pets explores a new type of everyday companion: small, expressive, animal-inspired robots designed for the physical world. The current collection features a penguin-inspired robot and a turtle-inspired robot. The present release contains CGI designs and a product concept film, not manufactured hardware.";
+const citation="NVIDIA Pets project contributors. (2026). NVIDIA Pets: Designing Real-World Robotic Companions. Independent product design report, version 0.2. https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets";
 async function copy(text,btn){
  try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text)}else{const el=document.createElement("textarea");el.value=text;el.style.position="fixed";el.style.left="-1000px";document.body.appendChild(el);el.select();document.execCommand("copy");el.remove()}const label=btn.textContent;btn.textContent="Copied";setTimeout(()=>btn.textContent=label,1300)}
  catch{btn.textContent="Select and copy"}

@@ -2,89 +2,63 @@
 title: NVIDIA Pets
 emoji: 🐾
 colorFrom: green
-colorTo: blue
+colorTo: gray
 sdk: static
 app_file: ../nvidia-pets.html
 tags:
-  - digital-pets
-  - multi-agent
-  - simulation
-  - virtual-companions
-  - 3d-characters
+  - robotics
+  - robot-companions
+  - industrial-design
+  - embodied-ai
+  - product-concepts
 license: mit
 ---
 
 # NVIDIA Pets
 
-**Four personalities. One shared desktop.**
+**Animal-inspired robots, designed for the real world.**
 
-NVIDIA Pets is a browser-based digital companion collection with four independent pet personalities: Pip the penguin, Ollie the otter, Cappy the capybara, and Rumi the red panda. The pets wander around a shared scene, respond when selected, and remember their own conversations locally.
+NVIDIA Pets explores a new family of small physical robot companions. The collection currently includes a robotic penguin and a robotic turtle. Both designs use off-white protective shells, orange highlights, camera-like eyes and visible mechanical joints.
 
-**[Launch the interactive demo](../nvidia-pets.html)** · [Source code](https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets)
+[View the product design page](../nvidia-pets.html) · [Read the accompanying design report](../papers/nvidia-pets.html)
 
-## Meet the companions
+## Companion lineup
 
-| Companion | Species | Personality | Typical activity |
+| Concept | Body | Design features | Proposed movement |
 | --- | --- | --- | --- |
-| Pip | Penguin | Curious, cautious, imaginative | Explores, waddles, asks questions |
-| Ollie | Otter | Playful, energetic, cheeky | Runs, plays, collects imaginary treasures |
-| Cappy | Capybara | Calm, friendly, reflective | Takes short strolls and naps |
-| Rumi | Red Panda | Clever, mischievous, opinionated | Wanders, teases, starts little adventures |
+| Robotic Penguin | Upright, two-legged | Optical face, orange beak, articulated flippers, low-profile feet | Controlled waddle, head turns and gestures |
+| Robotic Turtle | Four-legged, low center of gravity | Segmented white shell, articulated neck, optical eye and sturdy feet | Slow crawling and head tilts |
 
-Each agent has its own movement speed, greeting, dialogue rules, energy level, happiness, activity state and chat history. Pets continue acting independently while you interact with another one.
+## Product direction
 
-## Release features
+NVIDIA Pets is designed around the idea of robotic companions that inhabit the same physical spaces as people, rather than software pets roaming around a computer screen. Intended capabilities for future engineering prototypes include expressive movement, vision and proximity sensing, speech interaction, personality-based responses and user-controlled memory.
 
-- **Autonomous roaming:** Four separate movement controllers choose independent destinations, then interpolate toward them with velocity scaled by elapsed frame time.
-- **Drag and place:** Pointer capture lets you move each companion to another spot on the stage.
-- **Separate conversations:** Each personality has its own transcript and simple browser-local memory.
-- **Interactions:** Feed, Play, Nap and Follow actions affect the pet's state and movement.
-- **Responsive playground:** All four companions appear simultaneously on desktop and mobile browsers.
-- **Character assets:** Optimized transparent 3D-style animal renders for use as web sprites.
+## Current status
 
-## Using the demo
+The robot designs and demonstration video are CGI. Physical production units, tested hardware, mechanical specifications, batteries, autonomy benchmarks, voice assistants, and launch dates have **not** been established. This project is an independent robotics-inspired concept, not an official NVIDIA hardware release.
 
-1. Open `nvidia-pets.html` and choose **Live demo**.
-2. Click a pet in the scene or select its name from the chat tabs.
-3. Type a message; each pet responds in its own voice.
-4. Tell a pet `My name is Alex`, then ask `Do you remember my name?`
-5. Move pets around with a mouse or touch input. Use **Follow** to let one follow the cursor.
-6. Try Feed, Play and Nap, then switch to another companion.
+An earlier experimental browser animation demonstrated independent on-screen characters and rule-based chat. That experiment is no longer featured in the product website. The current direction is physical robot design.
 
-## Architecture
+## Proposed engineering workflow
 
-```
-nvidia-pets.html             Repository page and live playground
-nvidia-pets/
-  README.md                  Release notes and usage
-  AGENTS.md                  Companion agent architecture
-  pets.json                  Declarative pet roster
-  site.css                   Responsive UI + motion layers
-  site.js                    Four independent behavior agents
-  assets/
-    penguin.webp             Transparent pet sprite
-    otter.webp
-    capybara.webp
-    red-panda.webp
-```
+1. Refine the two industrial designs and mechanical dimensions.
+2. Produce CAD, joints and kinematic designs for each body type.
+3. Prototype controlled locomotion using appropriate motors and electronics.
+4. Add onboard sensors and safe local control.
+5. Test stability, obstacle avoidance and human-safe interactions.
+6. Prototype optional AI-assisted speech and behavioral systems.
+7. Publish measured results only after actual testing.
 
-Each instance maintains its own `x/y` position, autonomous target, energy, happiness, follow state, sleep timer, and messaging context. The runtime uses `requestAnimationFrame` to advance all pet states and `localStorage` to preserve chat history on the current device.
+## Repository contents
 
-## AI and model status
+- `robot-repo.css` and `robot-repo.js`: physical robot concept website styling and navigation.
+- `assets/robot-penguin.webp` and `assets/robot-turtle.webp`: concept renders.
+- `pets.json`: two-robot design manifest.
+- `AGENTS.md`: proposed robotics software and hardware architecture.
+- `../papers/nvidia-pets.html`: accompanying design report and embedded video.
 
-The current chat is a **local personality simulation with deterministic dialogue rules**, not a foundation model or a separately trained NVIDIA language model. It does not require API tokens. This repository contains the browser agent architecture and an upgrade path to real hosted inference. Adding a model provider requires a backend or carefully scoped API integration.
+The older web-only prototype files remain in Git history for reference, but they do not form part of the current product presentation.
 
-The illustrated animals are optimized rendered sprites rather than downloadable rigged 3D mesh assets. Future work can add GLB/VRM character rigs, animation states, voice synthesis, desktop overlays, and server-backed persistent memories.
+## Attribution and licensing
 
-## Roadmap
-
-- Proper skeletal animation and state-based walk, idle, and sleep cycles.
-- Optional LLM backend per companion with tool and personality prompts.
-- Voice chat and turn-taking.
-- Persistent pet homes, needs, custom cosmetics and habits.
-- Interactive pet-to-pet conversations and cooperative actions.
-- Desktop companion / always-on-top widget builds.
-
-## License and attribution
-
-Software in this repository: MIT for original project code. The project uses independent character artwork. NVIDIA Pets is an independently developed digital-pet project, not an NVIDIA product or announcement, and NVIDIA has not endorsed it. Third-party branding remains the property of its owners.
+Original project code is under MIT. The images are concept artwork. NVIDIA Pets is an independently developed design exploration and is not an NVIDIA-manufactured, verified, or endorsed product.
