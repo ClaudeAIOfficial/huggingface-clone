@@ -1,25 +1,49 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>NVIDIA Pets</title><meta name="description" content="NVIDIA Pets: robotic companions, product design and an extended collection of interaction, mobility and AI features."><link rel="icon" href="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"><link rel="stylesheet" href="./papers/nvidia-pets.css"></head><body>
-<header class="site-header"><div class="nav-wrap"><div class="brand"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt=""><strong>Hugging Face</strong></div><div class="static-site-id">Papers <span>/</span> NVIDIA Pets</div><div class="header-end">Product paper</div></div></header>
-<div class="layout"><main>
-<div class="breadcrumb"><span>Papers</span><span>/</span><b>NVIDIA Pets</b></div>
-<div class="paper-kicker">PRODUCT PAPER <span class="dotsep">·</span> OCTOBER 2026 <span class="dotsep">·</span> NVIDIA PETS</div>
-<h1 class="paper-title">NVIDIA Pets</h1>
-<p class="paper-subtitle">Real-world robotic companions and their interaction systems.</p>
-<div class="metadata"><div>Project: <strong>NVIDIA Pets</strong> <span>·</span> Category: <strong>Physical robot companions</strong></div><div>Document: <strong>Extended product description and feature specification</strong></div></div>
-<div class="chips"><span class="chip">Robot companions</span><span class="chip">Embodied intelligence</span><span class="chip">Personal robotics</span></div>
-<hr class="rule">
-<section id="abstract" class="paper-section"><h2>Abstract</h2><div class="abstract-highlight">NVIDIA Pets imagines a new relationship between people and machines: compact robotic companions that share our physical spaces, show curiosity through movement, and develop recognizable personalities through everyday interaction.</div>
+<!doctype html><html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff">
+<title>NVIDIA Pets · Papers</title>
+<meta name="description" content="NVIDIA Pets, a long-form paper about robotic companions, their interaction design, mobility, embedded intelligence and safety.">
+<link rel="icon" href="https://huggingface.co/front/assets/huggingface_logo-noborder.svg">
+<link rel="stylesheet" href="./papers/nvidia-pets.css"><script defer src="./papers/nvidia-pets-ui.js"></script>
+</head>
+<body class="hf-papers-page">
+<header class="hf-topbar"><div class="hf-topbar-inner">
+ <div class="hf-brand"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt=""><strong>Hugging Face</strong></div>
+ <div class="hf-search"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.2"/><path d="m16.2 16.2 5 5"/></svg><span>Search models, datasets, users...</span></div>
+ <nav class="hf-nav" aria-label="Site sections"><span>Models</span><span>Datasets</span><span>Spaces</span><span>Buckets <small>NEW</small></span><span>Docs</span><span>Enterprise</span><span>Pricing</span><span class="hf-nav-divider"></span><span>Log In</span><span class="hf-sign-up">Sign Up</span></nav>
+</div></header>
+<div class="hf-paper-layout">
+ <main class="hf-paper-main">
+  <div class="hf-paper-toolbar"><div class="hf-back"><span class="hf-crumb-chip">‹ &nbsp; Papers</span><span class="hf-doc-chip">▤ &nbsp; NVIDIA Pets</span></div><button class="hf-copy hf-top-copy" type="button" data-copy="markdown">▤ Copy markdown <span class="copy-glyph">⧉</span></button></div>
+  <div class="hf-paper-header">
+   <h1>NVIDIA Pets</h1>
+   <div class="hf-published">Published October 2026 <span class="bullet">·</span> <strong>Product paper</strong> <span class="bullet">·</span> NVIDIA Pets</div>
+   <p class="hf-authors"><span>Authors:</span> <strong>NVIDIA Pets project contributors</strong></p>
+  </div>
+  <section id="abstract" class="paper-section hf-abstract"><h2>Abstract</h2><div class="abstract-highlight">NVIDIA Pets imagines a new relationship between people and machines: compact robotic companions that share our physical spaces, show curiosity through movement, and develop recognizable personalities through everyday interaction.</div>
 <p>The collection features two complementary robotic companion designs. Their design combines a unified white-and-orange mechanical language with distinct forms of movement, attention, and expression. One uses an upright silhouette, rounded optical face, short articulated arms, and broad feet. The other uses a stable four-legged body, a compact optical head, and a segmented protective shell. Together, the designs explore how small robots might communicate presence and personality without needing humanlike faces or large humanoid bodies.</p>
 <p>This document describes the companion experience, interaction model, envisioned physical behavior, personalization, home life, and the engineering considerations necessary for a full robotics product. The extensive feature catalog below serves as an illustrative creative product specification. It is not a set of independently verified shipping features or an official NVIDIA announcement.</p></section>
-<section class="paper-section" id="identity"><h2>1. Meet NVIDIA Pets</h2>
+  <div class="hf-paper-actions">
+   <button type="button" class="hf-action" data-copy="abstract">⧉ &nbsp;Copy abstract</button>
+   <button type="button" class="hf-action" data-copy="markdown">▤ &nbsp;Copy paper</button>
+   <button type="button" class="hf-action" data-scroll="paper-details">▥ &nbsp;Read full paper</button>
+  </div>
+  <section class="hf-media-preview" aria-label="NVIDIA Pets product images"><div class="model-pictures">
+  <figure class="paper-figure"><img src="./nvidia-pets/assets/robot-penguin.webp" alt="NVIDIA Pets upright robot with off-white body, orange accents, optical eyes, articulated side arms and broad feet"></figure>
+  <figure class="paper-figure"><img src="./nvidia-pets/assets/robot-turtle.webp" alt="NVIDIA Pets low-profile four-legged robot with a segmented shell, articulated neck, optical eye and orange foot pads"></figure>
+ </div></section>
+  <section class="hf-community" id="community">
+    <h2><span class="hf-community-symbol" aria-hidden="true">◈</span> Community</h2>
+    <div class="hf-comment-head"><span class="hf-avatar">NP</span><div><strong>NVIDIA Pets</strong> <span class="hf-author-role">Paper contributors</span><small>Product description</small></div></div>
+    <p class="hf-community-intro">NVIDIA Pets explores expressive robotic companionship through physical design, movement and intelligent interaction. This paper outlines the product vision and a full set of proposed capabilities for everyday environments.</p>
+    <div class="hf-community-form"><label for="paperComment">Join the discussion</label><textarea id="paperComment" maxlength="800" rows="3" placeholder="Share a thought about NVIDIA Pets..."></textarea><div class="hf-form-footer"><small>Your comments stay in this browser.</small><button id="postComment" type="button" class="hf-action">Post comment</button></div></div>
+    <div id="commentResults" aria-live="polite"></div>
+  </section>
+  <div class="hf-paper-longform" id="paper-details"><div class="hf-longform-label"><span>FULL PRODUCT PAPER</span><span>32 featured capabilities</span></div><section class="paper-section" id="identity"><h2>1. Meet NVIDIA Pets</h2>
 <p>Most everyday technology exists behind a screen. NVIDIA Pets takes a different approach. Instead of asking people to open another application, the companion becomes a small physical presence: a device that can face you when you enter the room, give a subtle sign that it is listening, move a short distance toward a familiar object, or settle into a quiet resting pose.</p>
 <p>The design favors simple, readable actions over exaggerated tricks. A tiny pause can communicate uncertainty. A head tilt can convey curiosity. A slow turn toward a sound can convey attention. A confident step forward can make an otherwise mechanical object feel responsive and approachable. These behaviors form the basis of a proposed personality system that links perception, context, and motion.</p>
 <p>The product family shares its most important visual cues: smooth off-white shell panels, carefully placed orange components, dark exposed mechanical joints, high-contrast optical eye modules, visible hardware seams, and a small, approachable scale. Each body remains immediately recognizable within the same product family.</p></section>
 <section class="companion-section" id="nvidia-pets"><div class="chapter-title"><h2>2. NVIDIA Pets</h2><p>Two distinct forms, one connected product family.</p></div>
- <div class="model-pictures">
-  <figure class="paper-figure"><img src="./nvidia-pets/assets/robot-penguin.webp" alt="NVIDIA Pets upright robot with off-white body, orange accents, optical eyes, articulated side arms and broad feet"></figure>
-  <figure class="paper-figure"><img src="./nvidia-pets/assets/robot-turtle.webp" alt="NVIDIA Pets low-profile four-legged robot with a segmented shell, articulated neck, optical eye and orange foot pads"></figure>
- </div>
+ 
  <p>NVIDIA Pets features two complementary approaches to physical companionship. The first uses an upright body, a rounded optical face, small articulated arms, and broad feet. Its character comes through careful steps, expressive head movements and gentle gestures. The second has a low four-legged body, a segmented shell and a compact movable neck. Its controlled movement and attentive posture create a calmer presence.</p>
  <p>Both share the same mechanical language, with off-white protective shells, orange accents, dark exposed joints and optical sensors. They differ in how they move, respond and occupy a space, yet they are presented together under one name: NVIDIA Pets.</p>
  </section>
@@ -42,7 +66,16 @@
 <p>This page is a standalone creative product paper. The robot images are design artwork, and the feature descriptions outline an imagined consumer robotics experience. No technical specifications, measurements, hardware inventory, shipping dates, pricing, factory output, certifications, software performance benchmarks, or official NVIDIA endorsement have been verified. The detailed feature set should not be interpreted as proof of commercially available capabilities.</p>
 <p>The long-term appeal of NVIDIA Pets lies in the possibility of small machines developing recognizable behavior through careful physical design and meaningful user interaction. Both designs represent different approaches to the same question: how can a compact robot become a companion that feels present without becoming demanding?</p>
 </section>
-</main><aside class="sidebar paper-sidebar"><div class="sidebar-card"><h3>NVIDIA Pets</h3><div class="side-detail"><span>Collection</span><strong>NVIDIA Pets</strong></div><div class="side-detail"><span>Focus</span><strong>Physical robot companions</strong></div><div class="side-detail"><span>Document</span><strong>Product paper</strong></div><div class="side-detail"><span>Feature entries</span><strong>32</strong></div><div class="side-detail"><span>Format</span><strong>Illustrated specification</strong></div></div>
-<div class="sidebar-card"><h3>Inside the paper</h3><div class="sidebar-section-list"><span>Abstract</span><span>Meet NVIDIA Pets</span><span>NVIDIA Pets</span><span>NVIDIA Pets</span><span>Intelligence and interaction</span><span>Autonomous physical behavior</span><span>Companion controls and lifestyle</span><span>Engineering, privacy and care</span><span>Living with a robot</span><span>System architecture</span><span>Design language</span></div></div>
-<div class="sidebar-card smallprint">Independently authored creative product specification. It does not verify an NVIDIA-made product, an official launch, or actual shipping functionality.</div></aside></div>
-<footer class="standalone-footer"><span>NVIDIA Pets · Robot companion feature paper</span><span>Illustrative product specification · No external navigation</span></footer></body></html>
+</div>
+ </main>
+ <aside class="hf-paper-side">
+  <div class="hf-upvote-row"><button type="button" class="hf-action hf-upvote" id="upvotePaper" aria-pressed="false">▲ Upvote &nbsp;<span id="upvoteCount">0</span></button><div class="hf-support-text">Your appreciation stays in this browser</div></div>
+  <div class="hf-agent-panel"><div class="hf-agent-heading">▤ &nbsp; Paper reference</div><button id="copyPaperRef" class="hf-agent-reference" type="button"><code>NVIDIA Pets · Product Paper</code><span>⧉</span></button><div class="hf-agent-note">Copy a reference to this paper</div></div>
+  <div class="hf-citation-section"><h3><span class="hf-section-icon">◈</span> Models citing this paper <small>0</small></h3><div class="hf-no-cites">No linked models recorded</div><p>Model citations can appear here when they are available.</p></div>
+  <div class="hf-citation-section"><h3><span class="hf-section-icon">▥</span> Datasets citing this paper <small>0</small></h3><div class="hf-no-cites">No linked datasets recorded</div><p>Dataset citations can appear here when they are available.</p></div>
+  <div class="hf-citation-section"><h3><span class="hf-section-icon">▦</span> Spaces citing this paper <small>0</small></h3><div class="hf-no-cites">No linked Spaces recorded</div><p>Space references can appear here when they are available.</p></div>
+  <div class="hf-citation-section"><h3><span class="hf-section-icon">▤</span> Collections including this paper <small>0</small></h3><div class="hf-no-cites">No linked collections recorded</div><p>Collection references can appear here when they are available.</p></div>
+  <div class="hf-source-note">NVIDIA Pets is an independently authored creative product specification. It does not verify an official NVIDIA hardware launch or shipping features.</div>
+ </aside>
+</div>
+</body></html>
