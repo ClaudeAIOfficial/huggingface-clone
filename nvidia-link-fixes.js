@@ -48,7 +48,7 @@ function showNvidiaPetsPaper(){
     img.removeAttribute("crossorigin");
   }
   const title=item.querySelector("p");
-  if(title)title.textContent="NVIDIA Pets: A New Family of Robot Companions";
+  if(title)title.textContent="NVIDIA Pets";
   paperList.prepend(item);
 }
 if(document.readyState==="loading")
