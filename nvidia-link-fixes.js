@@ -31,7 +31,8 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 function showNvidiaPetsPaper(){
   const heading=[...document.querySelectorAll("h2,h3,h4")]
     .find(el=>el.textContent.trim()==="Papers");
-  const paperList=heading?.nextElementSibling?.querySelector(".space-y-3");
+  const next=heading?.nextElementSibling;
+  const paperList=next?.matches(".space-y-3")?next:next?.querySelector(".space-y-3");
   if(!paperList||document.getElementById("nvidia-pets-paper-row"))return;
   const original=paperList.querySelector("a.group.flex");
   if(!original)return;
