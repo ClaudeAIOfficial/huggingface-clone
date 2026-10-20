@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="NVIDIA Pets: an interactive multi-agent companion prototype featuring a robotic penguin and turtle, with movement and individual local memory.">
+<meta property="og:title" content="NVIDIA Pets: Interactive Multi-Agent Digital Companions">
+<meta property="og:description" content="Project report and embedded companion demo.">
+<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/3692a45e-161e-4ed5-abc3-b23541d4fa26.jpg">
+<title>NVIDIA Pets: Interactive Multi-Agent Digital Companions · Papers</title>
+<link rel="icon" href="https://huggingface.co/front/assets/huggingface_logo-noborder.svg">
+<link rel="stylesheet" href="./nvidia-pets.css">
+<script defer src="./nvidia-pets.js"></script>
+</head>
+<body>
+<header class="site-header">
+<div class="nav-wrap">
+<a class="brand" href="../index.html"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt=""><strong>Hugging Face</strong></a>
+<div class="nav-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="15" height="15" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="paperSearch" placeholder="Search this paper..." aria-label="Search this paper"></div>
+<nav aria-label="Navigation"><a href="../index.html">Models</a><a href="../index.html">Datasets</a><a href="../nvidia.html">Organizations</a><a href="../nvidia-pets.html">NVIDIA Pets</a><a href="https://huggingface.co/docs" target="_blank" rel="noopener">Docs</a></nav>
+</div>
+</header>
+<div class="layout">
+<main>
+<div class="breadcrumb"><a href="../nvidia.html">NVIDIA</a><span>/</span><span>Papers</span><span>/</span><b>NVIDIA Pets</b></div>
+<div class="paper-kicker"><span class="doc-ico">▤</span> Project paper <span class="dotsep">·</span> Version 0.1 <button id="copyCitation" class="plain-copy" type="button" title="Copy citation">Copy citation <span aria-hidden="true">⧉</span></button></div>
+<h1>NVIDIA Pets: Interactive Multi-Agent Digital Companions with Autonomous Behavior and Local Memory</h1>
+<div class="metadata">
+<div>Released <strong>October 2026</strong> <span>·</span> <a href="../nvidia-pets.html">NVIDIA Pets project</a></div>
+<div>Authors: <strong>Independent NVIDIA Pets project contributors</strong></div>
+</div>
+<div class="chips"><span class="chip">Robotic companions</span><span class="chip">Multi-agent systems</span><span class="chip">Interactive simulation</span><span class="chip">Browser-based</span></div>
+<hr class="rule">
+<section id="abstract"><h2>Abstract</h2>
+<div class="abstract-highlight">NVIDIA Pets is a browser-based digital companion prototype that explores how independent robotic-animal characters can display movement, personality-specific responses, and memory within a shared interactive environment.</div>
+<p>The project demonstrates a lightweight multi-agent architecture using a penguin and a turtle character as visual companions. Both agents maintain distinct behavior settings and conversation state, while a shared rendering loop coordinates their movement in the browser. Users can select a companion, communicate through text, and trigger interactions such as moving, playing, resting, and following the cursor. The prototype emphasizes expressive character behavior and the sense of companionship without requiring a continuously running model server. The implementation stores conversation history locally and uses predefined dialogue rules rather than a trained language model. The accompanying visual demonstration illustrates the two robotic characters, their common design language, and restrained animated behavior.</p>
+</section>
+<div class="action-bar">
+<a class="action" href="#demonstration"><svg width="15" height="15" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7z" fill="currentColor"/></svg> Watch demonstration</a>
+<a class="action" href="../nvidia-pets.html">↗ Project repository</a>
+<a class="action" href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">⌘ Source code</a>
+<button class="action" type="button" id="copyAbstract">⧉ Copy abstract</button>
+</div>
+<section id="demonstration" class="demo-section">
+<h2>Demonstration</h2>
+<p>The video below showcases the current robotic penguin and turtle character concepts. The footage is a CGI demonstration, not physical hardware testing.</p>
+<div class="video-frame">
+<video controls playsinline preload="metadata" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/3692a45e-161e-4ed5-abc3-b23541d4fa26.jpg" aria-label="NVIDIA Pets penguin and turtle demonstration">
+<source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/55a240cf-6a00-4455-b21c-77b6df1cd6e2.mp4" type="video/mp4">
+Your browser does not support HTML5 video. <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/55a240cf-6a00-4455-b21c-77b6df1cd6e2.mp4" target="_blank" rel="noopener">Open the demonstration</a>.
+</video>
+</div>
+<div class="video-meta"><span>Video demonstration</span><span>8 seconds · 1920 × 1080</span><a target="_blank" rel="noopener" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/55a240cf-6a00-4455-b21c-77b6df1cd6e2.mp4">Open video ↗</a></div>
+</section>
+<section id="overview" class="article"><h2>1. Introduction</h2>
+<p>Personal assistants typically live in a chat interface and wait for direct instructions. NVIDIA Pets explores a different presentation: small, animal-inspired companions that share a visual space with the user, perform autonomous movements, and maintain their own interaction patterns. The interaction design draws inspiration from physical robots, particularly expressive optical eyes, compact mechanical proportions, and simple recognizable motions.</p>
+<p>The goal of this prototype is to study how a small number of independent behaviors can make a digital companion feel responsive without introducing complicated simulation requirements. The current implementation runs entirely in the browser, and its behaviors do not imply physical robot autonomy or a deployed foundation model.</p>
+<h2 id="system">2. System Architecture</h2>
+<p>Each companion is represented by an independent agent object. The agent contains a personality profile, position, movement target, idle state, energy and happiness values, and a separate message history. A shared animation loop advances the positions of all active agents, while event handlers react to clicks, cursor motion, dragging, and interaction controls.</p>
+<div class="diagram">
+<div class="diagram-title">NVIDIA Pets · Multi-Agent Browser Runtime</div>
+<div class="agent-grid"><div class="agentbox"><img src="../nvidia-pets/assets/penguin.webp" alt="Penguin character reference"><strong>Penguin Agent</strong><small>Curious · responsive</small></div><div class="agentbox"><div style="font-size:45px;height:85px;display:grid;place-items:center;color:#6a8397" aria-hidden="true">⚙</div><strong>Shared Runtime</strong><small>Rendering · input · state</small></div><div class="agentbox"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/3692a45e-161e-4ed5-abc3-b23541d4fa26.jpg" alt="Turtle character in the demonstration"><strong>Turtle Agent</strong><small>Calm · measured</small></div></div>
+<div class="diagram-foot">Separate agent state <span>⇄</span> shared browser scene <span>⇄</span> per-agent local memory</div>
+</div>
+<h3>2.1 Movement and Behavior</h3>
+<p>Each agent periodically chooses a destination and moves toward it with a configurable speed. Additional modes temporarily replace autonomous roaming: a rest interval pauses movement, a play action increases activity, and a follow action redirects the target toward the user's cursor. Pointer input allows the user to reposition agents directly. The mechanism favors clear, visually legible behavior over complex physical simulation.</p>
+<h3>2.2 Distinct Companion Personalities</h3>
+<p>Personality profiles influence greetings, response selection, idle behavior and interaction patterns. The penguin companion favors curious, exploratory behavior. The turtle companion favors calm, measured actions. Their differentiation comes from lightweight behavioral settings and scripted response styles, rather than a claim of independent consciousness or human-level conversational intelligence.</p>
+<h3>2.3 Persistence and Memory</h3>
+<p>Conversation histories and selected profile information can persist in browser local storage. Keeping individual state separate prevents one companion's discussion from automatically becoming another's memory. Local persistence removes the need for a hosted account system in this early prototype, but it also means memories do not synchronize across devices and can disappear when browser storage is cleared.</p>
+<h2 id="interaction">3. Interactive Demonstration</h2>
+<p>The browser playground supports four basic classes of input: selecting an agent, sending a text message, moving the agent in a shared scene, and choosing an interaction action. The same interaction controls can be expanded to new characters or richer behaviors without altering the overall scene structure.</p>
+<div class="callout"><strong>Current implementation:</strong> Users can move and interact with digital sprites. The project does not yet provide 3D skeletal rigs, an always-on-top desktop overlay, voice interaction, or hosted language-model inference.</div>
+<p><a href="../nvidia-pets.html#demo">Open the interactive NVIDIA Pets playground ↗</a></p>
+<h2 id="implementation">4. Implementation Details</h2>
+<p>The prototype uses HTML, CSS and JavaScript. Character artwork starts from realistic 3D-style renders and is displayed as 2D sprites. A frame-driven renderer handles movement and positioning, while local dialogue logic produces character-specific responses. Client-side storage retains each character's conversation history. Source code and manifest files are available in the associated repository.</p>
+<div class="code-title">Interaction pseudocode</div>
+<pre class="code-example"><code>for (const pet of activePets) {
+  pet.updateAutonomousTarget();
+  pet.moveTowardTarget(deltaTime);
+  pet.render();
+}
+
+onMessage(pet, message) {
+  pet.history.push(message);
+  pet.replyUsingLocalPersonalityRules();
+  pet.saveHistory();
+}</code></pre>
+<h2 id="evaluation">5. Evaluation and Limitations</h2>
+<p>This release is a demonstration of interaction design and browser behavior, not a published benchmark study. It contains no measured robotics success rates, physical hardware test results, or statistical comparison against commercial assistant systems. Any future evaluation should explicitly report its procedure, sample size, hardware or simulator configuration, and limitations.</p>
+<p>The CGI companion video is intended to visualize the character designs and potential behaviors. It should not be interpreted as evidence that physical NVIDIA Pets devices exist or that the characters use production-grade autonomous AI.</p>
+<h2 id="future">6. Future Work</h2>
+<p>Potential extensions include rigged 3D models with articulated walk cycles, sound and speech synthesis, optional language-model reasoning through a secure service, user-controlled memory, cross-companion collaboration and a true desktop companion application. Each improvement can build on the prototype's separate agent states and shared scene controls.</p>
+<h2 id="reference">7. Project Resources</h2>
+<ul><li><a href="../nvidia-pets.html">NVIDIA Pets interactive project page</a></li>
+<li><a href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener">NVIDIA Pets source repository</a></li>
+<li><a href="https://www.youtube.com/watch?v=reiTh7K4KSc" target="_blank" rel="noopener">Microduck product demonstration (visual inspiration)</a></li></ul>
+</section>
+<section class="community-section" id="community">
+<div class="community-title"><div><h2>Community</h2><p>Feedback and suggestions for this project report</p></div><span class="community-count" id="commentCount">0 comments</span></div>
+<div class="comment-intro"><div class="avatar">NP</div><div><strong>NVIDIA Pets project</strong><small>Project note</small><p>This is a preview of the digital companion work. The video shows the current penguin and turtle designs, while the linked interactive repository contains the browser prototype. What interaction would you add next?</p></div></div>
+<form id="commentForm" class="comment-form"><label for="commentInput">Join the conversation</label><textarea id="commentInput" maxlength="1000" rows="3" placeholder="Share a suggestion about the pets..."></textarea><div class="comment-tools"><span>Comments here are stored only in this browser.</span><button type="submit" class="submit-comment">Post locally</button></div></form>
+<div id="commentList" aria-live="polite"></div>
+</section>
+</main>
+<aside class="sidebar">
+<div class="sidebar-card"><h3>Project overview</h3><div class="side-detail"><span>Project</span><strong>NVIDIA Pets</strong></div><div class="side-detail"><span>Document</span><strong>Technical project note</strong></div><div class="side-detail"><span>Release</span><strong>October 2026</strong></div><div class="side-detail"><span>Demo</span><strong>8-second CGI video</strong></div><div class="side-detail"><span>Companions featured</span><strong>2</strong></div><div class="side-detail"><span>Code</span><strong>Browser JavaScript</strong></div></div>
+<div class="sidebar-card"><h3>Related project</h3><a class="related" href="../nvidia-pets.html"><img src="../nvidia-pets/assets/penguin.webp" alt=""><span><b>NVIDIA Pets</b><small>Interactive multi-agent browser demonstration</small></span><span>↗</span></a>
+<a class="related" href="https://github.com/ClaudeAIOfficial/huggingface-clone/tree/main/nvidia-pets" target="_blank" rel="noopener"><span class="folder-icon">⌘</span><span><b>Source files</b><small>View project code and documentation</small></span><span>↗</span></a></div>
+<div class="sidebar-card toc"><h3>On this page</h3>
+<a href="#abstract">Abstract</a><a href="#demonstration">Demonstration</a><a href="#overview">Introduction</a><a href="#system">System architecture</a><a href="#interaction">Interactive demonstration</a><a href="#evaluation">Evaluation</a><a href="#future">Future work</a><a href="#community">Community</a></div>
+<div class="sidebar-card attribution">NVIDIA Pets is an independent community project. This page is not an official NVIDIA research publication or an arXiv submission.</div>
+</aside>
+</div>
+<footer><div>© NVIDIA Pets project contributors</div><div><a href="../nvidia.html">Organization directory</a><a href="../nvidia-pets.html">Project repository</a><a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face ↗</a></div></footer>
+</body></html>

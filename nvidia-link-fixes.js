@@ -24,3 +24,33 @@ function init(){
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
+
+/* Local NVIDIA Pets project paper: native thumbnail row under Papers. */
+(()=>{
+"use strict";
+function showNvidiaPetsPaper(){
+  const heading=[...document.querySelectorAll("h2,h3,h4")]
+    .find(el=>el.textContent.trim()==="Papers");
+  const paperList=heading?.nextElementSibling?.querySelector(".space-y-3");
+  if(!paperList||document.getElementById("nvidia-pets-paper-row"))return;
+  const original=paperList.querySelector("a.group.flex");
+  if(!original)return;
+  const item=original.cloneNode(true);
+  item.id="nvidia-pets-paper-row";
+  item.setAttribute("href","./papers/nvidia-pets.html");
+  item.setAttribute("aria-label","Open NVIDIA Pets multi-agent companion project paper");
+  const img=item.querySelector("img");
+  if(img){
+    img.src="https://d2ol7oe51mr4n9.cloudfront.net/user_3DFeZk0LqgiFcue7STVOyiCo13m/3692a45e-161e-4ed5-abc3-b23541d4fa26.jpg";
+    img.alt="NVIDIA Pets robots";
+    img.removeAttribute("srcset");
+    img.removeAttribute("crossorigin");
+  }
+  const title=item.querySelector("p");
+  if(title)title.textContent="NVIDIA Pets: Interactive Multi-Agent Digital Companions";
+  paperList.prepend(item);
+}
+if(document.readyState==="loading")
+  document.addEventListener("DOMContentLoaded",showNvidiaPetsPaper,{once:true});
+else showNvidiaPetsPaper();
+})();
