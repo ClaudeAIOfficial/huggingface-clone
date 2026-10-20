@@ -25,50 +25,55 @@ function init(){
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
 
-/* Local NVIDIA Pets repository highlight in the Recent Activity sidebar. */
+/* NVIDIA Pets activity row uses the same layout/connector as neighboring Recent Activity items. */
 (function () {
   "use strict";
   function showPetsActivity() {
-    if (document.getElementById("nvidia-pets-recent-activity")) return;
-    const heading = [...document.querySelectorAll("h2,h3,h4")]
+    const heading = Array.from(document.querySelectorAll("h2,h3,h4"))
       .find(el => /^Recent Activity\s*$/i.test(el.textContent.trim()));
     if (!heading) return;
 
-    const activitySection = heading.nextElementSibling;
-    if (!activitySection) return;
-    const list = activitySection.querySelector(".relative.grid") || activitySection;
+    const section = heading.nextElementSibling;
+    const list = section?.querySelector(".relative.grid") || section;
+    if (!list) return;
+
+    // One row only, even when the function runs again.
+    if (list.querySelector("#nvidia-pets-recent-activity")) return;
+
     const row = document.createElement("div");
     row.id = "nvidia-pets-recent-activity";
-    row.className = "nvidia-pets-recent-item";
+    row.className = "group flex w-full items-start justify-start gap-2.5";
     row.innerHTML = [
-      '<a class="nvidia-pets-recent-link" href="./nvidia-pets.html" title="Open the NVIDIA Pets interactive repository">',
-      '  <span class="nvidia-pets-recent-avatar"><img src="./nvidia-pets/assets/penguin.webp" alt="" loading="lazy"></span>',
-      '  <span class="nvidia-pets-recent-copy">',
-      '    <span class="nvidia-pets-recent-title"><strong>NVIDIA Pets</strong> <span class="nvidia-pets-recent-time">New project</span></span>',
-      '    <span class="nvidia-pets-recent-subtitle">4 interactive pet companions</span>',
-      '    <span class="nvidia-pets-recent-route">Open NVIDIA Pets repository →</span>',
+      '<div class="flex h-full flex-col items-center">',
+      '  <span class="inline-block">',
+      '    <a class="relative flex size-[17px] flex-none items-center justify-center" href="./nvidia-pets.html" aria-label="NVIDIA Pets repository">',
+      '      <span class="flex-none">',
+      '        <img class="max-w-none size-3.5 rounded-full size-[17px]! flex-none select-none" src="./nvidia-pets/assets/penguin.webp" alt="">',
+      '      </span>',
+      '      <span class="absolute -bottom-1.5 -right-1.5 z-1 flex size-4 items-center justify-center rounded-full bg-white">',
+      '        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="none" aria-hidden="true" class="text-indigo-500">',
+      '          <path d="m12 2 8.5 4.8v10.3L12 22l-8.5-4.9V6.8L12 2Z" fill="currentColor" opacity=".28"/>',
+      '          <path d="m12 12 8.5-5.2M12 12 3.5 6.8M12 12v10" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+      '        </svg>',
+      '      </span>',
+      '    </a>',
       '  </span>',
-      '</a>'
+      '  <div class="mb-1 mt-1 h-3.5 border-l border-gray-300 group-last:border-dashed dark:border-gray-800"></div>',
+      '</div>',
+      '<div class="w-[calc(100%-20px)] pb-2 pr-4 lg:w-full lg:max-w-[350px]">',
+      '  <div class="flex items-baseline overflow-hidden whitespace-nowrap text-sm">',
+      '    <span class="inline-block">',
+      '      <a class="whitespace-nowrap underline decoration-gray-200 hover:decoration-gray-400 dark:decoration-gray-600 dark:hover:decoration-gray-400" href="./nvidia-pets.html">NVIDIA Pets</a>',
+      '    </span>',
+      '    <span>&nbsp;released a project</span>',
+      '    <span class="ml-1.5 truncate text-xs text-gray-400">New project</span>',
+      '  </div>',
+      '  <a class="block truncate text-[12.5px] text-gray-500 underline decoration-gray-300 hover:decoration-gray-400 dark:text-gray-400 dark:decoration-gray-600 dark:hover:decoration-gray-400" href="./nvidia-pets.html">NVIDIA-Pets: interactive pet companions</a>',
+      '</div>'
     ].join("");
     list.prepend(row);
-    if (document.getElementById("nvidia-pets-activity-style")) return;
-    const css = document.createElement("style");
-    css.id = "nvidia-pets-activity-style";
-    css.textContent = [
-      ".nvidia-pets-recent-item{margin:0 0 13px;max-width:100%}",
-      ".nvidia-pets-recent-link{display:flex;align-items:flex-start;gap:9px;text-decoration:none!important;color:inherit!important;max-width:100%}",
-      ".nvidia-pets-recent-link:hover .nvidia-pets-recent-route{text-decoration:underline}",
-      ".nvidia-pets-recent-avatar{display:grid;place-items:center;flex:0 0 21px;width:21px;height:21px;margin-top:1px;border-radius:50%;background:#e7f4e9;border:1px solid #d2e8d5;overflow:hidden}",
-      ".nvidia-pets-recent-avatar img{width:19px;height:19px;object-fit:contain}",
-      ".nvidia-pets-recent-copy{display:flex;flex-direction:column;min-width:0;line-height:1.4;font-size:12px}",
-      ".nvidia-pets-recent-title{color:#182335;display:block}",
-      ".nvidia-pets-recent-title strong{font-weight:650}",
-      ".nvidia-pets-recent-time{margin-left:3px;font-size:10px;color:#94a3b8}",
-      ".nvidia-pets-recent-subtitle{font-size:11px;color:#566578}",
-      ".nvidia-pets-recent-route{font-size:11px;color:#536c9b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}"
-    ].join("");
-    document.head.append(css);
   }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", showPetsActivity, { once: true });
   } else {
