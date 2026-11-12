@@ -49,10 +49,6 @@ function insertArticle(){
  section.setAttribute("aria-label","Newest community article");
  section.style.margin="2rem 0 2.25rem";
  section.innerHTML='<p style="font-size:.86rem;color:#667085;margin-bottom:.65rem">Latest community article · November 12, 2026</p>'+renderArticle();
- const disclosure=document.createElement("p");
- disclosure.style.cssText="font-size:.88rem;color:#667085";
- disclosure.textContent="Independent community commentary. “Colette Kruss” is a nickname for Colette Kress, not her official name.";
- section.querySelector("p:nth-of-type(2)")?.insertAdjacentElement("afterend",disclosure);
  banner.insertAdjacentElement("afterend",section);
  const line=document.createElement("hr");
  line.id="previous-nvidia-organization-content";
